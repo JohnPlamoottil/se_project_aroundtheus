@@ -3,8 +3,8 @@
 ### Overview
 
 - Intro
-  -Figma
-  -Images
+- Figma
+- Images
 
 **Descriptions**
 
