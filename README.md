@@ -20,7 +20,7 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **Images**
 
-- downloaded the images from the sprint3 platform
+- retrieved the images from the sprint3 platform
 - or the images could be directly exported from Figma is another method
 - optimized them so the projects load faster
 
