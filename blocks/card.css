@@ -37,7 +37,7 @@
   max-width: 373px;
 }
 .card__like-button {
-  background: transparent url(../images/likebutton.svg) center no-repeat;
+  background: transparent url(../card-images/likebutton.svg) center no-repeat;
   width: 21px;
   height: 18px;
   border-style: none;

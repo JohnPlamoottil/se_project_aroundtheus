@@ -8,7 +8,16 @@
 
 **Descriptions**
 
-the functionality and the technologies used to plan for improving the project
+This project is the first stage in a new project called Around the U.S.
+In this iteration, I created a responsive layout from the design specs in Figma.
+
+1. working with design specs
+2. design in a world of ever-changing devices
+3. grid layout
+4. developing interfaces for different devices
+5. intermediate Git
+
+In Sprint4 I will utilize Javascript to make the project interactive
 
 **Intro**
 
