@@ -36,6 +36,6 @@ This project is made so all the elements are displayed correctly on popular scre
 
 Good Luck and Have Fun!
 
-- [Project3 Link](https://github.com/JohnPlamoottil/se_project_aroundtheus.git)
+- [Project3 Link](https://johnplamoottil.github.io/se_project_aroundtheus/)
 
 - [Video Submission Youtube unlisted Link](https://youtu.be/9h6GOltyLww)
