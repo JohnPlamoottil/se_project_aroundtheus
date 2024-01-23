@@ -1,4 +1,4 @@
-# Project 3: Around the USA
+# Project 4 Stage 1: Around the USA
 
 ### Overview
 
@@ -9,7 +9,23 @@
 **Descriptions**
 
 This project is the first stage in a new project called Around the U.S.
-In this iteration, I created a responsive layout from the design specs in Figma.
+
+In Sprint3, I created a responsive layout from the design specs in Figma using grids and adding buttons.
+
+In Sprint4 I utilized Javascript (script.js) to make the project interactive
+stage 1 - creating an array for initial cards for the 6 imgs and links
+
+Sprint4:
+
+1. Data Types and Variables
+2. Conditionals and Loops
+3. Data Structures, Arrays, and Objects
+4. Functions
+5. Basics of the DOM
+6. Debugging
+7. Export GIT
+
+Sprint3:
 
 1. working with design specs
 2. design in a world of ever-changing devices
@@ -17,15 +33,15 @@ In this iteration, I created a responsive layout from the design specs in Figma.
 4. developing interfaces for different devices
 5. intermediate Git
 
-In Sprint4 I will utilize Javascript to make the project interactive
-
 **Intro**
 
 This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
 
 **Figma**
 
-- [Link to the project on Figma] (https://www.figma.com/file/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432%3A187&mode=dev)
+- [Link to the project4 on Figma] (https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=0%3A1&mode=dev)
+
+- [Link to the project3 on Figma] (https://www.figma.com/file/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432%3A187&mode=dev)
 
 **Images**
 
@@ -36,6 +52,6 @@ This project is made so all the elements are displayed correctly on popular scre
 
 Good Luck and Have Fun!
 
-- [Project3 Link](https://johnplamoottil.github.io/se_project_aroundtheus/)
+- [Project Link](https://johnplamoottil.github.io/se_project_aroundtheus/)
 
-- [Video Submission Youtube unlisted Link](https://youtu.be/9h6GOltyLww)
+- [Project3 Video Submission Youtube unlisted Link](https://youtu.be/9h6GOltyLww)
