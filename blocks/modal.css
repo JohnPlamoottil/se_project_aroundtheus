@@ -1,0 +1,46 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: black;
+  z-index: 999;
+  display: flex;
+  padding: 19px;
+  align-items: center;
+  justify-content: center;
+  /*display: none;*/
+}
+
+.modal__container {
+  background-color: #fff;
+  position: relative;
+  padding: 36px;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 10px;
+  margin: 195px 425px;
+}
+
+.modal__opened {
+  display: flex;
+}
+
+.modal__close {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  /*top: -45px;*/
+  bottom: calc(100% + 5px);
+  /*right: -45px;*/
+  left: calc(100% + 5px);
+  width: 40px;
+  height: 40px;
+  background-image: url(../card-images/Close.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  /*outline: none;*/
+  cursor: pointer;
+}
