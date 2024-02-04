@@ -1,4 +1,4 @@
-# Project 4 Stage 1: Around the USA
+# Project 4 Stage 3: Around the USA
 
 ### Overview
 
@@ -8,7 +8,7 @@
 
 **Descriptions**
 
-This project is the first stage in a new project called Around the U.S.
+This project is the third stage in a new project called Around the U.S.
 
 In Sprint3, I created a responsive layout from the design specs in Figma using grids and adding buttons.
 
@@ -39,7 +39,9 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **Figma**
 
-- [Link to the project4 on Figma] (https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=0%3A1&mode=dev)
+- [Link to the project4 stage2 on Figma] (https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4%3A-Around-The-U.S.-%2F-desktop-%2B-mobile?node-id=6432%3A356&mode=dev)
+
+- [Link to the project4 stage1 on Figma] (https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=0%3A1&mode=dev)
 
 - [Link to the project3 on Figma] (https://www.figma.com/file/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432%3A187&mode=dev)
 

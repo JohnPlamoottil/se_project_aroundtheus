@@ -7,13 +7,22 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: black;
   z-index: 999;
-  display: flex;
   padding: 19px;
   align-items: center;
   justify-content: center;
-  /*display: none;*/
+  display: none;
 }
 
+.modal__heading {
+  width: 330px;
+  height: 23px;
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
 .modal__container {
   background-color: #fff;
   position: relative;
@@ -24,6 +33,11 @@
   margin: 195px 425px;
 }
 
+.modal__container:hover {
+  opacity: 0.6px;
+  cursor: pointer;
+}
+
 .modal__opened {
   display: flex;
 }
@@ -31,6 +45,7 @@
 .modal__close {
   border: none;
   background-color: transparent;
+  cursor: pointer;
   position: absolute;
   /*top: -45px;*/
   bottom: calc(100% + 5px);
@@ -43,4 +58,144 @@
   background-size: contain;
   /*outline: none;*/
   cursor: pointer;
+}
+
+.modal__close:hover {
+  opacity: 0.6px;
+  cursor: pointer;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.modal__button {
+  width: 100%;
+  height: 50.152px;
+  border-radius: 2px;
+  background: #000;
+  color: #fff;
+  border: none;
+}
+
+.modal__input {
+  width: 358px;
+  height: 27.26px;
+  color: #000;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  /*alpha = opacity*/
+  margin-bottom: 30px;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.modal__opened {
+  display: flex;
+}
+
+.modal_opened:hover {
+  opacity: 0.6px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    padding: 0 19px;
+    display: flex;
+  }
+
+  .modal__heading {
+    width: 330px;
+    height: 23px;
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+  }
+
+  .modal__input {
+    width: 358px;
+    height: 14px;
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .modal__button {
+    width: 358px;
+    height: 50.152px;
+    border-radius: 2px;
+    background: #000;
+  }
+
+  .modal__opened {
+    display: flex;
+  }
+
+  .modal__opened:hover {
+    opacity: 0.6px;
+    cursor: pointer;
+  }
+
+  .modal__container {
+    position: relative;
+    padding: 36px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  .modal__container:hover {
+    opacity: 0.6px;
+    cursor: pointer;
+  }
+
+  .modal__close {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../card-images/Close.svg");
+  }
+
+  .modal__close:hover {
+    opacity: 0.6px;
+    cursor: pointer;
+  }
+
+  .modal__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+  }
 }
