@@ -1,4 +1,4 @@
-# Project 4 Stage 3: Around the USA
+# Project 4 Stage 4: Around the USA
 
 ### Overview
 
@@ -14,6 +14,9 @@ In Sprint3, I created a responsive layout from the design specs in Figma using g
 
 In Sprint4 I utilized Javascript (script.js) to make the project interactive
 stage 1 - creating an array for initial cards for the 6 imgs and links
+stage 2 - creating a modal box in the CSS
+stage 3 - using the DOM to create buttons within About Me, Save, Close integrated with HTML and CSS and JS
+stage 4 - adding final functionality to the modal box and making the 6 cards render from the array
 
 Sprint4:
 
@@ -38,6 +41,8 @@ Sprint3:
 This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
 
 **Figma**
+
+- [Link to the project4 stage3&4 on Figma] (https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?type=design&node-id=0-1&mode=design&t=z5FVK2njhR9SnGnr-0)
 
 - [Link to the project4 stage2 on Figma] (https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4%3A-Around-The-U.S.-%2F-desktop-%2B-mobile?node-id=6432%3A356&mode=dev)
 
