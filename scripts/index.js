@@ -37,7 +37,9 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
-const profileEditForm = profileEditModal.querySelector(".modal__form");
+// const modalOpenSelector = "modal_opened"; a shortcut for later
+// const profileForm = document.forms["profile-form"]; improvement as needed by reviewer for later
+const profileEditForm = profileEditModal.querySelector(".modal__form"); //removing this line of code removes all the cards from the webpage//
 const cardListEl = document.querySelector(".cards__list");
 console.log("cardListEl", cardListEl);
 const cardTemplate =
@@ -46,7 +48,9 @@ const cardTemplate =
 // Functions //
 
 function closePopup() {
-  profileEditModal.classList.remove("modal__opened");
+  profileEditModal.classList.remove(
+    "modal_opened"
+  ); /* used a modificator with only one low dash */
 }
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -72,7 +76,8 @@ function handleProfileEditSubmit(e) {
 function handleOpenEditProfile() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal__opened");
+  profileEditModal.classList.add("modal_opened");
+  /* used a modificator with only one low dash */
 }
 
 profileEditButton.addEventListener("click", handleOpenEditProfile);

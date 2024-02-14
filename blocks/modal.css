@@ -34,6 +34,8 @@
   width: 100%;
   box-sizing: border-box;
   max-width: 430px;
+  height: 430px;
+  /* this height allows the save button to still be inside the modal box */
 }
 
 .modal__container:hover {
@@ -41,8 +43,9 @@
   cursor: pointer;
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
+  /* used a modificator with only one low dash */
 }
 
 .modal__close {
@@ -174,6 +177,8 @@
     background-color: #fff;
     margin: auto;
     border-radius: 10px;
+    width: 282px;
+    height: 400px;
   }
 
   .modal__container:hover {
