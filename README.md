@@ -1,24 +1,46 @@
-# Project 4 Stage 4: Around the USA
+# Project 5: Around the USA
 
 ### Overview
 
-- Intro
-- Figma
-- Images
+- Intro (3)
+- Figma (3)
+- Images (3)
+- Javascript (4)
+- Element Cloning (Moving and Removing Elements) (5)
+- DOM Related Methods Return Array-Like Collections
+  - These Collections are querySelectorAll, Array.from() (5)
 
 **Descriptions**
 
-This project is the final stage in a new project called Around the U.S.
+This project is a portion of the continuing project called Around the U.S. (started in Sprint3)
 
 In Sprint3, I created a responsive layout from the design specs in Figma using grids and adding buttons.
 
-In Sprint4 I utilized Javascript (script.js) to make the project interactive
-stage 1 - creating an array for initial cards for the 6 imgs and links
-stage 2 - creating a modal box in the CSS
-stage 3 - using the DOM to create buttons within About Me, Save, Close integrated with HTML and CSS and JS
-stage 4 - adding final functionality to the modal box and making the 6 cards render from the array
+1. Working with fonts and text in Figma
+2. Working with images in Figma
+3. Working with other users
+4. Saving a Figma file
+5. Deploy your project to GitHub Pages
+6. Publish your project on GitHub Pages for the whole world to see.
+
+In Sprint4 I utilized Javascript (script.js) to make the project interactive:
+
+1. stage 1 - creating an array for initial cards for the 6 imgs and links
+2. stage 2 - creating a modal box in the CSS
+3. stage 3 - using the DOM to create buttons within About Me, Save, Close integrated with HTML and CSS and JS
+4. stage 4 - adding final functionality to the modal box and making the 6 cards render from the array
 
 In Sprint5, I added on more elements to the previous project. The elements I added includes a new modal for adding new cards to display, an image popup that toggles on mouse-click, a like button that interacts with mouse-clicks and a delete icon that removes cards fromthe page.
+
+1. Rendered Cards
+2. Form for Adding a Card
+3. Adding a Card (New Place)
+4. Inserting Like Button (heart icon)
+5. Inserting Trash Icon for Deleting a Card
+6. Opening a Picture Modal
+7. Smooth Modal Opening and Closing
+
+Project Objectives:
 
 Sprint3:
 
