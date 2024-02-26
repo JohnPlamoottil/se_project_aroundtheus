@@ -25,93 +25,159 @@ const initialCards = [
   },
 ];
 
-// Elements //
+/*----------------------------------ELEMENTS----------------------------------*/
 
-const profileEditButton = document.querySelector("#profile-edit-button");
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileEditCloseButton = document.querySelector(".modal__close");
-const profileTitle = document.querySelector(".profile__title");
+//Selecting profile elements
+const profileEditButton = document.querySelector(".profile__edit-button");
+const profileAddCardButton = document.querySelector(".profile__add-button");
+const profileName = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
+
+//Selecting modal elements
+const modal = document.querySelector(".modal");
+const modalCloseButtons = document.querySelectorAll(".modal__close-button");
+
+//Selecting modal profile elements
+const modalProfileEdit = document.querySelector("#modal-profile");
+const modalProfileFormName = document.querySelector(
+  ".modal__form-name_profile"
+);
+const modalProfileFormDescription = document.querySelector(
+  ".modal__form-description_profile"
+);
+const modalProfileForm = document.querySelector(".modal__form_profile");
+
+//Selecting modal new place elements
+const modalNewPlaceAdd = document.querySelector("#modal-newplace");
+const modalNewPlaceFormTitle = document.querySelector(
+  ".modal__form-title_newplace"
+);
+const modalNewPlaceFormLink = document.querySelector(
+  ".modal__form-url_newplace"
+);
+const modalNewPlaceForm = document.querySelector(".modal__form_newplace");
+
+//Selecting modal image preview elements
+const modalImagePreview = document.querySelector("#modal-preview");
+const modalImagePreviewLink = document.querySelector(".modal__image_preview");
+const modalImagePreviewCaption = document.querySelector(
+  ".modal__caption_preview"
 );
 
-// const modalOpenSelector = "modal_opened"; a shortcut for later
-// const profileForm = document.forms["profile-form"]; improvement as needed by reviewer for later
-const profileEditForm = profileEditModal.querySelector(".modal__form"); //as directed in Proj4 Stage2 Video by Julian; removing this line of code removes all the cards from the webpage//
-const cardListEl = document.querySelector(".cards__list");
-console.log("cardListEl", cardListEl);
+//Selecting card list
+const cardList = document.querySelector(".cards__list");
+
+//Selecting card template
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
-// Functions //
+/*----------------------------------FUNCTIONS----------------------------------*/
 
-function closePopup() {
-  profileEditModal.classList.remove(
-    "modal_opened"
-  ); /* used a modificator with only one low dash as reviewer directed */
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
 }
-function getCardElement(cardData) {
-  //clone the template element with all its content and store it in a cardElement
+
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+}
+/*Function that makes inputs values of name and description being
+same as current name and description on page when form opened*/
+function openProfilePopup() {
+  modalProfileFormName.value = profileName.textContent;
+  modalProfileFormDescription.value = profileDescription.textContent;
+  openPopup(modalProfileEdit);
+}
+
+//Function which will get card data
+function getCardData(cardData) {
+  //Selecting card and cloning it same amount of times as array length
   const cardElement = cardTemplate.cloneNode(true);
-  //access the card title and image and store them in variables
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  //set the path to the image to the link field of the object
-  //set the image field alt text tothe name field of the object
-  //set the card title to the name field of the object, too
-  cardTitleEl.textContent = cardData.name;
-  //return the ready HTML element with the filled-in data
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  // return cardElement;
+
+  //Selecting images and title of our card
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__title");
+
+  //Selecting like button
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+
+  //Selecting delete button
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+
+  //Setting text, image and alt data same as arrays data
+  cardTitle.textContent = cardData.name;
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
+
+  //OnClick event for heart icon which will change color of it
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.toggle("card__like-button_black");
+  });
+
+  //OnClick event for trash icon which will delete card
+  cardDeleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  //OnClick event which will open image preview with caption
+  cardImage.addEventListener("click", () => {
+    modalImagePreviewLink.src = cardImage.src;
+    modalImagePreviewLink.alt = cardImage.alt;
+    modalImagePreviewCaption.textContent = cardTitle.textContent;
+    openPopup(modalImagePreview);
+  });
+
   return cardElement;
 }
 
-// Event Handlers //
-
-function handleProfileEditSubmit(e) {
-  e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+//Function which will render card
+function renderCard(cardData) {
+  cardList.prepend(getCardData(cardData));
 }
 
-// Event Listeners //
-
-function handleOpenEditProfile() {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
-  /* used a modificator with only one low dash */
+//Function which will save changes that we made with profile form
+function saveProfileFormChanges(event) {
+  event.preventDefault();
+  profileName.textContent = modalProfileFormName.value;
+  profileDescription.textContent = modalProfileFormDescription.value;
+  closePopup(modalProfileEdit);
 }
 
-profileEditButton.addEventListener("click", handleOpenEditProfile);
+//Function which will add new place card
+function addNewPlaceCard(event) {
+  event.preventDefault();
+  const link = modalNewPlaceFormLink.value;
+  const name = modalNewPlaceFormTitle.value;
+  renderCard({
+    name: name,
+    link: link,
+  });
+  event.target.reset();
+  closePopup(modalNewPlaceAdd);
+}
 
-profileEditCloseButton.addEventListener("click", closePopup);
+//Function that will make all cards visible
+initialCards.forEach(renderCard);
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+/*----------------------------------SUBMIT HANDLERS----------------------------------*/
 
-// as shown in Julian Hernandez's Project4 Stage4 3/3 Video
-// for (let i = 0; i < initialCards.length; i++) {
-//   console.log("hello" + i);
-//   const card = initialCards(i);
-// }
+//Submit profile form
+modalProfileForm.addEventListener("submit", saveProfileFormChanges);
 
-// initialCards.forEach((cardData) => {
-//   const cardElement = getCardElement(cardData);
-//   cardListEl.append(cardElement);
-// });
+//Submit new place form
+modalNewPlaceForm.addEventListener("submit", addNewPlaceCard);
 
-initialCards.forEach((cardData) => {
-  console.log(cardData.name);
+/*----------------------------------EVENT LISTENERS----------------------------------*/
 
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-  //append makes the cards go in reverse order
-  //prepend makes the cards go chronological order
+//Open profile edit form
+profileEditButton.addEventListener("click", openProfilePopup);
+
+//Close any modal
+modalCloseButtons.forEach((button) => {
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => closePopup(modal));
 });
 
-//extra notes below:
-// cardTitleEl.textContext = cardData.title;
+//Open form which will add new place
+profileAddCardButton.addEventListener("click", () => {
+  openPopup(modalNewPlaceAdd);
+});

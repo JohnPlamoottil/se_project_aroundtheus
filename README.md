@@ -8,7 +8,7 @@
 
 **Descriptions**
 
-This project is the third stage in a new project called Around the U.S.
+This project is the final stage in a new project called Around the U.S.
 
 In Sprint3, I created a responsive layout from the design specs in Figma using grids and adding buttons.
 
@@ -17,6 +17,16 @@ stage 1 - creating an array for initial cards for the 6 imgs and links
 stage 2 - creating a modal box in the CSS
 stage 3 - using the DOM to create buttons within About Me, Save, Close integrated with HTML and CSS and JS
 stage 4 - adding final functionality to the modal box and making the 6 cards render from the array
+
+In Sprint5, I added on more elements to the previous project. The elements I added includes a new modal for adding new cards to display, an image popup that toggles on mouse-click, a like button that interacts with mouse-clicks and a delete icon that removes cards fromthe page.
+
+Sprint3:
+
+1. working with design specs
+2. design in a world of ever-changing devices
+3. grid layout
+4. developing interfaces for different devices
+5. intermediate Git
 
 Sprint4:
 
@@ -28,19 +38,21 @@ Sprint4:
 6. Debugging
 7. Export GIT
 
-Sprint3:
+Sprint5:
 
-1. working with design specs
-2. design in a world of ever-changing devices
-3. grid layout
-4. developing interfaces for different devices
-5. intermediate Git
+1. More About Strings, Numbers, and ...
+2. Array Methods
+3. Functions. Part2
+4. Working c the DOM. Part2
+5. Managing the GIT Story
 
 **Intro**
 
 This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
 
 **Figma**
+
+- [Link to the project5 on Figma] (https://www.figma.com/file/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?type=design&node-id=0-1&mode=design&t=3Is6tCgbLMhdDBfO-0#40;Copy&#41;?t=3hvVWRz9LUFsxyNn-6)
 
 - [Link to the project4 stage3&4 on Figma] (https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?type=design&node-id=0-1&mode=design&t=z5FVK2njhR9SnGnr-0)
 
