@@ -189,8 +189,8 @@
   line-height: 1.2;
   letter-spacing: 0em;
   text-align: left;
+  background-repeat: no-repeat;
   color: white;
-  background: auto;
 }
 
 @media screen and (max-width: 775px) {
@@ -264,7 +264,7 @@
   .modal__container {
     position: relative;
     padding: 25px 22px;
-    background-color: #fff;
+    /* background-color: #fff; */
     margin: auto;
     border-radius: 10px;
     min-width: 238px;
