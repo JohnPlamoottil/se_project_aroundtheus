@@ -190,6 +190,7 @@
   letter-spacing: 0em;
   text-align: left;
   color: white;
+  background: auto;
 }
 
 @media screen and (max-width: 775px) {
@@ -267,7 +268,7 @@
     margin: auto;
     border-radius: 10px;
     min-width: 238px;
-    height: 400px;
+    /* height: 400px; */
   }
 
   .modal__container:hover {
@@ -277,7 +278,7 @@
 
   .modal__container_preview {
     max-width: 320px;
-    padding: 134px 0px;
+    padding: 0px 0px;
   }
 
   .modal__close {
