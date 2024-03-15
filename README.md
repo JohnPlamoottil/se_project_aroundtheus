@@ -1,4 +1,4 @@
-# Project 5: Around the USA
+# Project 6: Around the USA
 
 ### Overview
 
@@ -9,6 +9,8 @@
 - Element Cloning (Moving and Removing Elements) (5)
 - DOM Related Methods Return Array-Like Collections
   - These Collections are querySelectorAll, Array.from() (5)
+- Form Validation (6)
+- Event Handlers (6)
 
 **Descriptions**
 
@@ -40,6 +42,51 @@ In Sprint5, I added on more elements to the previous project. The elements I add
 6. Opening a Picture Modal
 7. Smooth Modal Opening and Closing
 
+In Sprint6, I started to debug JS using console.log() to validate changes made on the console. Also I incorporated the use of Objects, Event Handlers, Forms, & Form Validation.
+
+1. Objects
+   1a. intro to objects
+   1b. creating objects and adding properties
+   1c. accessing properties
+   1d. operators (delete, in)
+   1e. iterating over properties
+   1f. pass by reference
+   1g. comparing objects
+   1h. copying objects
+   a. shallow copying
+   b. deep copying
+   1i. Objects as Arrays
+   1j. Objects as Functions
+2. Event Handling
+   2a. intro
+   2b. keyboard events
+   2c. properties of Keyboard Event Objects KEOs
+   2d. properties of Mouse Event Object MEOs
+   2e. Removing Event Listener
+   2f. Preventing a Browsers Default Behavior
+   evt.preventDefault();
+   2g. Event Bubbling and Delegation
+   2h. extra-preventing bubbling
+   2i. extra-HTML event attributes
+   2j. resources
+3. Forms
+   3a. intro
+   3b. accessing forms using JS
+   3c. submitting forms
+   3d. accessing form elements
+   3e. referring to Form elements values
+   3f. The Change and Input elements
+   3g. the Reset and Submit Methods
+4. Form Validation
+   4a. intro
+   4b. browser build-in form validation
+   4c. JS form validation
+   4d. connecting JS validation to the DOM
+   4e. validation of several fields and forms
+   4f. interaction with other DOM elements
+5. Debugging in Javascript
+   console.log
+
 Project Objectives:
 
 Sprint3:
@@ -68,11 +115,21 @@ Sprint5:
 4. Working c the DOM. Part2
 5. Managing the GIT Story
 
+Sprint6:
+
+1. Objects
+2. Event Handling
+3. Working with Forms
+4. Form Validation
+5. Debugging in Javascript
+
 **Intro**
 
 This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
 
 **Figma**
+
+-[Link to the project6 on Figma] (https://www.figma.com/file/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?fuid=1292520043125919162)
 
 - [Link to the project5 on Figma] (https://www.figma.com/file/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?type=design&node-id=0-1&mode=design&t=3Is6tCgbLMhdDBfO-0#40;Copy&#41;?t=3hvVWRz9LUFsxyNn-6)
 

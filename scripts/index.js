@@ -39,11 +39,9 @@ const modalCloseButtons = document.querySelectorAll(".modal__close-button");
 
 //Selecting modal profile elements
 const modalProfileEdit = document.querySelector("#modal-profile");
-const modalProfileFormName = document.querySelector(
-  ".modal__form-name_profile"
-);
+const modalProfileFormName = document.querySelector("#profile-edit-input");
 const modalProfileFormDescription = document.querySelector(
-  ".modal__form-description_profile"
+  "#profile-description-input"
 );
 const modalProfileForm = document.querySelector(".modal__form_profile");
 
@@ -64,7 +62,7 @@ const modalImagePreviewCaption = document.querySelector(
   ".modal__caption_preview"
 );
 
-//Selecting card list
+//Selecting card list container
 const cardList = document.querySelector(".cards__list");
 
 //Selecting card template
