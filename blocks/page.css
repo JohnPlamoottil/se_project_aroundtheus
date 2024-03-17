@@ -1,18 +1,20 @@
 .page {
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  /* font-family: Inter, Arial, Helvetica, sans-serif; */
   background-color: black;
   /* color: #fff; */
-  margin-left: 200px;
-  margin-right: 200px;
+  /* margin-left: 200px;
+  margin-right: 200px; */
 }
 .page__content {
+  font-family: "Inter, Arial, sans-serif";
   display: flex;
+  color: #fff;
   flex-direction: column;
   min-height: 100vh;
   /* max-width: 880px;
   justify-content: center;
-  margin: 0 auto;
-  padding: 0 20px; */
+  margin: 0 auto; */
+  padding: 0 19px;
 }
 .page__section {
   max-width: 880px;
@@ -29,5 +31,11 @@
 
   .page__section {
     max-width: calc(100% - 40px);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .page__content {
+    padding: 0;
   }
 }
