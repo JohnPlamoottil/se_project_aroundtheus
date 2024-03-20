@@ -1,7 +1,7 @@
 //--------------------Function showing input error-------------------->>
 const showInputError = (formElement, inputElement, config) => {
   const { errorClass, inputErrorClass } = config;
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`); // name name-error, descriprion description-errror
   inputElement.classList.add(inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
   errorElement.classList.add(errorClass);

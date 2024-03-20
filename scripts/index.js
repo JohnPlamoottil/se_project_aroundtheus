@@ -25,21 +25,21 @@ const initialCards = [
   },
 ];
 
-//--------------------SELECT CARDS CONTAINER-------------------->>
+//----SELECT CARDS CONTAINER--->>
 const cardsContainer = document.querySelector(".cards__list");
 
-//--------------------SELECT ALL CLOSE BUTTONS ELEMENTS-------------------->>
+//----SELECT ALL CLOSE BUTTONS ELEMENTS--->>
 const modalList = Array.from(document.querySelectorAll(".modal"));
 const closeButtons = document.querySelectorAll(".modal__close");
 
-//--------------------PROFILE ELEMENTS-------------------->>
+//----PROFILE ELEMENTS--->>
 const profile = document.querySelector(".profile");
 const editButton = profile.querySelector(".profile__edit-button");
 const addButton = profile.querySelector(".profile__add-button");
 const profileName = profile.querySelector(".profile__name");
 const profileDescription = profile.querySelector(".profile__description");
 
-//--------------------PROFILE EDIT MODAL ELEMENTS-------------------->>
+//----PROFILE EDIT MODAL ELEMENTS--->>
 const modalProfileEdit = document.querySelector("#modal-profile-edit");
 const profileForm = document.forms["profileForm"];
 const profileNameInput = modalProfileEdit.querySelector(
@@ -49,22 +49,22 @@ const profileDescriptionInput = modalProfileEdit.querySelector(
   ".modal__input_type_description"
 );
 
-//--------------------ADD IMAGE MODAL ELEMENTS-------------------->>
+//---ADD IMAGE MODAL ELEMENTS--->>
 const modalAddImage = document.querySelector("#modal-add-card");
-const imageAddForm = document.forms["addCardForm"];
+const imageAddForm = document.getElementById("modal-add-card");
 const modalImageTitle = modalAddImage.querySelector(".modal__input_type_title");
 const modalImageLink = modalAddImage.querySelector(
   ".modal__input_type_image-link"
 );
 
-//-----------------IMAGE PREVIEW MODAL ELEMENTS------------------>>
+//---IMAGE PREVIEW MODAL ELEMENTS--->>
 const modalImagePreview = document.querySelector("#image-preview-modal");
 const previewImage = modalImagePreview.querySelector(".modal__image");
 const previewImageTitle = modalImagePreview.querySelector(
   ".modal__image-title"
 );
 
-//------------------FUNCTION THAT CREATES CARDS------------------>>
+//---FUNCTION THAT CREATES CARDS--->>
 function createCard(data) {
   const cardTemplate = document.querySelector("#card").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -90,13 +90,13 @@ function createCard(data) {
   return cardElement;
 }
 
-//--------------------ADDING INITIAL CARDS------------------------>>
+//---ADDING INITIAL CARDS--->>
 initialCards.forEach((item) => {
   const card = createCard(item);
   cardsContainer.append(card);
 });
 
-//---------------CLOSE MODALS WITH ESCAPE KEY FUNCTIONS--------------->>
+//---CLOSE MODALS WITH ESCAPE KEY FUNCTIONS--->>
 function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
@@ -104,14 +104,14 @@ function closeModalByEscape(evt) {
   }
 }
 
-//---------------CLOSE MODALS PRESSING OUTSIDE OF MODAL--------------->>
+//---CLOSE MODALS PRESSING OUTSIDE OF MODAL--->>
 function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.currentTarget);
   }
 }
 
-//--------------------OPEN AND CLOSE MODAL FUNCTIONS-------------------->>
+//---OPEN AND CLOSE MODAL FUNCTIONS--->>
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalByEscape);
@@ -123,7 +123,7 @@ function closeModal(modal) {
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 
-//--------------------PROFILE EDIT MODAL FUNCTIONS-------------------->>
+//---PROFILE EDIT MODAL FUNCTIONS--->>
 function fillProfileInputs() {
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -135,7 +135,7 @@ function handleProfileFormSubmit(evt) {
   closeModal(modalProfileEdit);
 }
 
-//--------------------ADD IMAGE MODAL FUNCTIONS-------------------->>
+//---ADD IMAGE MODAL FUNCTIONS---->>
 function handleAddImageFormSubmit(evt) {
   evt.preventDefault();
   const userCard = {};
@@ -147,18 +147,19 @@ function handleAddImageFormSubmit(evt) {
   closeModal(modalAddImage);
 }
 
-//--------------------PROFILE EDIT MODAL EVENTS-------------------->>
+//---PROFILE EDIT MODAL EVENTS--->>
 editButton.addEventListener("click", () => {
   openModal(modalProfileEdit);
   fillProfileInputs();
 });
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 
-//--------------------ADD IMAGE MODAL EVENTS-------------------->>
+//---ADD IMAGE MODAL EVENTS--->>
 addButton.addEventListener("click", () => openModal(modalAddImage));
+console.log(imageAddForm);
 imageAddForm.addEventListener("submit", handleAddImageFormSubmit);
 
-//--------------------MODAL CLOSE EVENT LOOP-------------------->>
+//---MODAL CLOSE EVENT LOOP--->>
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
   button.addEventListener("click", () => closeModal(modal));
