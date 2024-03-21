@@ -2,7 +2,7 @@
 const showInputError = (formElement, inputElement, config) => {
   const { errorClass, inputErrorClass } = config;
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`); // name name-error, descriprion description-errror
-  console.log(`#${inputElement.id}-error`);
+  console.log(`#${inputElement.id}-error`); // checking the console
   inputElement.classList.add(inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
   errorElement.classList.add(errorClass);
@@ -51,7 +51,7 @@ function setEventListeners(formElement, config) {
   const { submitButtonSelector } = config;
   const inputList = [...formElement.querySelectorAll(inputSelector)];
   const buttonElement = formElement.querySelector(submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, config);
+  toggleButtonState(inputList, buttonElement, config); // try to move this step to the modal open, right after the opening
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, config);
