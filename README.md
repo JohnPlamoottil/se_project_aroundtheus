@@ -45,47 +45,46 @@ In Sprint5, I added on more elements to the previous project. The elements I add
 In Sprint6, I started to debug JS using console.log() to validate changes made on the console. Also I incorporated the use of Objects, Event Handlers, Forms, & Form Validation.
 
 1. Objects
-   1a. intro to objects
-   1b. creating objects and adding properties
-   1c. accessing properties
-   1d. operators (delete, in)
-   1e. iterating over properties
-   1f. pass by reference
-   1g. comparing objects
-   1h. copying objects
-   a. shallow copying
-   b. deep copying
-   1i. Objects as Arrays
-   1j. Objects as Functions
+   1. intro to objects
+   2. creating objects and adding properties
+   3. accessing properties
+   4. operators (delete, in)
+   5. iterating over properties
+   6. pass by reference
+   7. comparing objects
+   8. copying objects
+   9. shallow copying
+   10. deep copying
+   11. Objects as Arrays
+   12. Objects as Functions
 2. Event Handling
-   2a. intro
-   2b. keyboard events
-   2c. properties of Keyboard Event Objects KEOs
-   2d. properties of Mouse Event Object MEOs
-   2e. Removing Event Listener
-   2f. Preventing a Browsers Default Behavior
-   evt.preventDefault();
-   2g. Event Bubbling and Delegation
-   2h. extra-preventing bubbling
-   2i. extra-HTML event attributes
-   2j. resources
+   1. intro
+   2. keyboard events
+   3. properties of Keyboard Event Objects KEOs
+   4. properties of Mouse Event Object MEOs
+   5. Removing Event Listener
+   6. Preventing a Browsers Default Behavior - evt.preventDefault();
+   7. Event Bubbling and Delegation
+   8. extra-preventing bubbling
+   9. extra-HTML event attributes
+   10. resources
 3. Forms
-   3a. intro
-   3b. accessing forms using JS
-   3c. submitting forms
-   3d. accessing form elements
-   3e. referring to Form elements values
-   3f. The Change and Input elements
-   3g. the Reset and Submit Methods
+   1. intro
+   2. accessing forms using JS
+   3. submitting forms
+   4. accessing form elements
+   5. referring to Form elements values
+   6. The Change and Input elements
+   7. the Reset and Submit Methods
 4. Form Validation
-   4a. intro
-   4b. browser build-in form validation
-   4c. JS form validation
-   4d. connecting JS validation to the DOM
-   4e. validation of several fields and forms
-   4f. interaction with other DOM elements
+   1. intro
+   2. browser build-in form validation
+   3. JS form validation
+   4. connecting JS validation to the DOM
+   5. validation of several fields and forms
+   6. interaction with other DOM elements
 5. Debugging in Javascript
-   console.log
+   1. console.log
 
 Project Objectives:
 
