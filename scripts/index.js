@@ -125,8 +125,14 @@ function closeModal(modal) {
 
 //---PROFILE EDIT MODAL FUNCTIONS--->>
 function fillProfileInputs() {
+  //paste here from discord
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  toggleButtonState(
+    [profileNameInput, profileDescriptionInput],
+    profileForm.querySelector(".modal__button"),
+    config
+  );
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
