@@ -51,7 +51,7 @@ const profileDescriptionInput = modalProfileEdit.querySelector(
 
 //---ADD IMAGE MODAL ELEMENTS--->>
 const modalAddImage = document.querySelector("#modal-add-card");
-const imageAddForm = document.getElementById("modal-add-card");
+const imageAddForm = document.getElementById("form-modal-add-card"); //new card
 const modalImageTitle = modalAddImage.querySelector(".modal__input_type_title");
 const modalImageLink = modalAddImage.querySelector(
   ".modal__input_type_image-link"
@@ -125,14 +125,8 @@ function closeModal(modal) {
 
 //---PROFILE EDIT MODAL FUNCTIONS--->>
 function fillProfileInputs() {
-  //paste here from discord
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  toggleButtonState(
-    [profileNameInput, profileDescriptionInput],
-    profileForm.querySelector(".modal__button"),
-    config
-  );
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -140,6 +134,7 @@ function handleProfileFormSubmit(evt) {
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(modalProfileEdit);
 }
+//toogle button moved from here as per reviewer comment
 
 //---ADD IMAGE MODAL FUNCTIONS---->>
 function handleAddImageFormSubmit(evt) {
@@ -154,15 +149,20 @@ function handleAddImageFormSubmit(evt) {
 }
 
 //---PROFILE EDIT MODAL EVENTS--->>
+// toggle button correctly placed
 editButton.addEventListener("click", () => {
   openModal(modalProfileEdit);
   fillProfileInputs();
+  toggleButtonState(
+    [profileNameInput, profileDescriptionInput],
+    profileForm.querySelector(".modal__button"),
+    config
+  );
 });
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 //---ADD IMAGE MODAL EVENTS--->>
 addButton.addEventListener("click", () => openModal(modalAddImage));
-console.log(imageAddForm);
 imageAddForm.addEventListener("submit", handleAddImageFormSubmit);
 
 //---MODAL CLOSE EVENT LOOP--->>
