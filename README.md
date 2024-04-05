@@ -1,4 +1,4 @@
-# Project 6: Around the USA
+# Project 7: Around the USA
 
 ### Overview
 
@@ -11,6 +11,9 @@
   - These Collections are querySelectorAll, Array.from() (5)
 - Form Validation (6)
 - Event Handlers (6)
+- OOP (7)
+- interfaces in OOP (7)
+- Modular JS introduction (7)
 
 **Descriptions**
 
@@ -86,6 +89,20 @@ In Sprint6, I started to debug JS using console.log() to validate changes made o
 5. Debugging in Javascript
    1. console.log
 
+In Sprint7, the purpose is to change javascript classes as Max pointed out in his tutorial. The classes to focus on are card.js and FormValidator.js with text and images in the scripts folder.
+
+1. Intro to Object Oriented Programming OOP
+   1. program - a set of interacting objects that make up a single structure
+   2. object - store data and have methods enabling that data to be passed from one obj to another
+   3. encapsulation -
+   4. inheritance -
+   5. polymorphism -
+   6. properties - key-value pairs
+   7. method - the value is a function
+      8
+2. Interfaces in OOP
+3. Intro to Modular Javascript
+
 Project Objectives:
 
 Sprint3:
@@ -121,6 +138,12 @@ Sprint6:
 3. Working with Forms
 4. Form Validation
 5. Debugging in Javascript
+
+Sprint7
+
+1. Intro to Object Oriented Programming OOP
+2. Interfaces in OOP
+3. Intro to Modular Javascript
 
 **Intro**
 
