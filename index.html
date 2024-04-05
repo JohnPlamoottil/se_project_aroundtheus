@@ -9,7 +9,9 @@
     <meta name="keywords" content="HTML, CSS, Javascript" />
     <meta name="author" content="JJ Plamoottil" />
     <meta name="viewport" content="=width=device-width, initial-scale=1.0" />
-    <title>Around the USA</title>
+    <title>PROJECT_6: Around the USA in javascript</title>
+
+    <!--style sheet and icon link-->
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
@@ -29,158 +31,180 @@
             alt="Avator"
             class="profile__photo"
           />
-          <div class="profile__info">
-            <h1 class="profile__name">Jacques Cousteau</h1>
+          <div class="profile__content">
+            <h1 class="profile__title" id="javascript-profile-title">
+              Jacques Cousteau
+            </h1>
             <button
               class="profile__edit-button"
-              id="profile-edit-button"
+              id="javascript-profile-edit-button"
               type="button"
-              aria-label="edit profile"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description" id="javascript-profile-description">
+              Explorer
+            </p>
           </div>
           <button
             type="button"
             class="profile__add-button"
-            aria-label="add card"
+            id="javascript-profile-add-button"
           ></button>
         </section>
-        <section class="cards page__section">
-          <ul class="cards__list">
-            <template id="card">
-              <li class="card">
-                <button
-                  class="card__trash-button"
-                  type="button"
-                  aria-label="remove card"
-                ></button>
-                <img src="" alt="" class="card__image" />
-                <div class="card__description">
-                  <h2 class="card__title"></h2>
-                  <button
-                    class="card__like-button"
-                    type="button"
-                    aria-label="like card"
-                  ></button>
-                </div>
-              </li>
-            </template>
-          </ul>
-        </section>
+        <ul class="cards__list" id="javascript-cards__list"></ul>
+        <section class="cards page__section"></section>
       </main>
-      <!--Profile Edit Popup-->
-      <div class="modal" id="modal-profile-edit">
+
+      <!--Profile Edit -  Button Modal PopUp-->
+      <div class="modal" id="javascript-profile-edit-modal">
         <div class="modal__container">
           <button
-            class="modal__close modal__close_type_form"
-            type="button"
-            aria-label="close-button"
+            class="modal__close-button"
+            id="javascript-profile-close-modal"
           ></button>
           <p class="modal__title">Edit Profile</p>
-          <form class="modal__form" name="profileForm" novalidate>
-            <label class="modal__label">
-              <input
-                type="text"
-                class="modal__input modal__input_type_name"
-                placeholder="Name"
-                id="person-name"
-                name="name"
-                minlength="2"
-                maxlength="40"
-                required
-              />
-              <span class="modal__error" id="person-name-error"></span>
-            </label>
-            <label class="modal__label">
-              <input
-                type="text"
-                class="modal__input modal__input_type_description"
-                placeholder="Description"
-                name="description"
-                id="person-description"
-                minlength="2"
-                maxlength="200"
-                required
-              />
-              <span class="modal__error" id="person-description-error"></span>
-            </label>
-            <button class="modal__button" type="submit" disabled>Save</button>
+          <form
+            class="modal__form"
+            id="javascript-modal-edit-form"
+            name="profileForm"
+            novalidate
+          >
+            <input
+              type="text"
+              name="title"
+              class="modal__field"
+              placeholder="Name"
+              id="javascript-profile-title-input"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span
+              class="modal__error"
+              id="javascript-profile-title-input error"
+            ></span>
+
+            <input
+              type="text"
+              name="description"
+              class="modal__field"
+              id="javascript-profile-description-input"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span
+              class="modal__error"
+              id="javascript-profile-description-input-error"
+            ></span>
+            <button
+              class="modal__save-button modal__button"
+              id="javascript-modal__button"
+              type="submit"
+              disabled
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
-      <!--End of profile edit pop up-->
-      <!--Add new place pop up-->
-      <div class="modal" id="modal-add-card">
+      <!--End of Profile Edit Pop Up/Modal-->
+
+      <!--Add New Place Modal-->
+      <div class="modal" id="javascript-add-card-modal">
         <div class="modal__container">
           <button
-            class="modal__close modal__close_type_form"
-            type="button"
-            aria-label="close-button"
+            class="modal__close button"
+            id="javascript-add-card-close-modal"
           ></button>
           <p class="modal__title">New Place</p>
-          <form class="modal__form" novalidate id="form-modal-add-card">
-            <label class="modal__label">
-              <input
-                type="text"
-                class="modal__input modal__input_type_title"
-                placeholder="Title"
-                name="title"
-                id="card-title"
-                minlength="1"
-                maxlength="30"
-                required
-              />
-              <span class="modal__error" id="card-title-error"></span>
-            </label>
-            <label class="modal__label">
-              <input
-                type="url"
-                class="modal__input modal__input_type_image-link"
-                placeholder="Image link"
-                name="image link"
-                id="card-url"
-                required
-              />
-              <span class="modal__error" id="card-url-error">Error</span>
-            </label>
-            <button class="modal__button" type="submit">Save</button>
+          <form
+            class="modal__form"
+            novalidate
+            id="javascript-modal-add-card-form"
+          >
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              class="modal__field"
+              id="javascript-add-card-title-input"
+              minlength="2"
+              maxlength="30"
+              required
+            />
+            <span
+              class="modal__error"
+              id="javascript-add-card-title-input-error"
+            ></span>
+
+            <input
+              type="url"
+              name="url"
+              placeholder="Image URL"
+              class="modal__field"
+              id="javascript-add-card-description-input"
+              required
+            />
+            <span
+              class="modal__error"
+              id="javascript-add-card-title-input-error"
+            ></span>
+            <button class="modal__save-button modal__button" disabled>
+              Create
+            </button>
           </form>
         </div>
       </div>
-      <!--End of new place pop up-->
+      <!--End of Add New Place Modal-->
+
       <!--Card Preview-->
-      <div class="modal" id="image-preview-modal">
-        <div class="modal__container modal__container_type_image">
-          <button class="modal__close modal__close_type_image"></button>
-          <img class="modal__image" src="#" alt="" />
-          <p class="modal__image-title"></p>
+      <div class="modal" id="javascript-image-preview-modal">
+        <div class="modal__preview-container">
+          <button
+            class="modal__close modal"
+            id="javascript-image-preview-close-modal"
+          ></button>
+          <img
+            class="modal__image-preview"
+            id="javascript-card__image"
+            src="#"
+            alt=""
+          />
+          <p
+            class="modal__image-title"
+            id="javascript-image-preview-card-title"
+          >
+            Replaces Card Title
+          </p>
         </div>
       </div>
-      <!--End of card preview-->
-      <!--Card render template-->
-      <template id="card-template">
+      <!--End of Card Preview-->
+
+      <!--Card Render Template-->
+      <template id="javascript-card-template">
         <li class="card">
-          <img src="#" class="card__image" alt="" />
-          <button
-            class="card__delete-button"
-            type="button"
-            aria-label="delete-button"
-          ></button>
+          <img class="card__image" id="javascript-card__image" src="#" alt="" />
+
+          <img
+            class="card__trash-image"
+            id="javascript-card__trash-image"
+            src="./card-images/trash-icon.svg"
+            alt="trash"
+          />
+
           <div class="card__description">
-            <h2 class="card__title"></h2>
+            <h2 class="card__title" id="javascript-card__title"></h2>
             <button
               class="card__like-button"
+              id="javascript-card__like-button"
               type="button"
-              aria-label="like-button"
             ></button>
           </div>
         </li>
       </template>
       <!--End of card render template-->
-      <footer class="footer page__section">
-        <p class="footer__copyright">
-          © March2024 Around The USA John Plamoottil
-        </p>
+      <footer class="footer">
+        <p class="footer__copyright">©Apr2024 John Plamoottil</p>
       </footer>
       <script src="./scripts/validation.js"></script>
       <script src="./scripts/index.js"></script>
