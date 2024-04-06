@@ -1,21 +1,22 @@
 .footer {
-  padding: 67px 0 60px 0;
-  display: flex;
-  margin-bottom: auto;
+  max-width: 880px;
+  margin-top: 67px;
+  margin-bottom: 60px;
 }
 
 .footer__copyright {
-  color: #545454;
+  color: rgba(84, 84, 84, 1);
   font-size: 18px;
-  line-height: 22px;
-  font-weight: 400;
+  line-height: 1.2px;
   margin: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 770px) {
   .footer {
-    padding: 48px 0 36px;
-    max-width: 282px;
+    align-self: self-start;
+    margin-bottom: 36px;
+    margin-top: 48px;
+    padding-left: 19px;
   }
 
   .footer__copyright {
