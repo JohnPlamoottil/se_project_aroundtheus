@@ -8,11 +8,8 @@
   list-style-type: none;
 }
 
-.card:hover {
-  cursor: pointer;
-}
-
 .card__image {
+  object-fit: cover;
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
@@ -70,12 +67,11 @@
   cursor: pointer;
 }
 
-.card__trash-button {
+.card__trash-image {
   background: transparent url(../card-images/trash-icon.svg) center no-repeat;
   transition: opacity 1s linear;
   color: #ffffff;
   border: none;
-  margin: 18px 0 0 249px;
   padding: 0;
   width: 18px;
   height: 19px;
@@ -84,7 +80,7 @@
   right: 15px;
 }
 
-.card__trash-button:hover {
+.card__trash-image:hover {
   opacity: 0.5;
   cursor: pointer;
 }

@@ -1,4 +1,13 @@
+.page {
+  font-family: Inter, Arial, Arial, Helvetica, sans-serif;
+  background-color: black;
+  margin-left: 200px;
+  margin-right: 200px;
+}
 .page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #000;
   color: #ffffff;
   font-family: Inter, Arial, sans-serif;
@@ -12,8 +21,13 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 620px) {
-  .page__content {
-    padding: 0;
+@media screen and (max-width: 1100px) {
+  .page {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .page__section {
+    max-width: calc(100% - 40px);
   }
 }
