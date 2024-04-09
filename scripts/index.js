@@ -24,16 +24,17 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-/*------------------------------------ELEMENTS---------------------------------*/
 
-//----PROFILE EDIT BUTTON--->>
-const profileEditButton = document.querySelector(
-  "#javascript-profile__edit-button"
-);
+/*------------------------------------ELEMENTS---------------------------------*/
 
 //----PROFILE EDIT MODAL---->>
 const profileEditModal = document.querySelector(
   "#javascript-profile-edit-modal"
+);
+
+//----PROFILE EDIT BUTTON--->>
+const profileEditButton = document.querySelector(
+  "#javascript-profile-edit-button"
 );
 
 //----PROFILE CLOSE MODAL--->>
@@ -59,18 +60,20 @@ const profileDescriptionInput = document.querySelector(
   "#javascript-profile-description-input"
 );
 
-//-----PROFILE EDIT FORM WITH PROFILE EDIT MODAL---------->>
+//-----PROFILE EDIT FORM ---------->>
 const profileEditForm = profileEditModal.querySelector(
   "#javascript-modal-edit-form"
-);
+); // handlers added at line 245
 
 //----SELECT CARD TEMPLATE AND ELEMENT--->>
 const cardTemplate = document.querySelector("#javascript-card-template").content
   .firstElementChild;
 
-const cardListElement = document.querySelector("#javascript-add-card-modal");
+const cardListElement = document.querySelector("#javascript-cards__list");
 
-const addCardForm = addCardForm.querySelector(
+const addCardModal = document.querySelector("#javascript-add-card-modal");
+
+const addCardForm = addCardModal.querySelector(
   "#javascript-add-card-title-input"
 );
 
@@ -110,14 +113,14 @@ function openPopup(modal) {
   modal.addEventListener("mousedown", handleModalCloseMouseClick);
 } // end of function
 
-//to close the modal
+// to close the modal
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleModalCloseEscPressDown);
   modal.removeEventListener("mousedown", handleModalCloseMouseClick);
 } // end of function
 
-//---CLOSE MODALS PRESSING OUTSIDE OF MODAL--->>
+// ---CLOSE MODALS PRESSING OUTSIDE OF MODAL--->>
 
 /*
 paramenter - this takes the event as in a mouse click 
@@ -145,25 +148,25 @@ function handleModalCloseEscPressDown(evt) {
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-  //clone template element c all its contents and store it in a cardElement variable
+  // clone template element c all its contents and store it in a cardElement variable
 
-  //this will give access for the card title and image so it will store them in variables
+  // this will give access for the card title and image so it will store them in variables
   const cardImageElement = cardElement.querySelector("#javascript-card__image");
 
   const cardTitleElement = cardElement.querySelector("#javascript-card__title");
 
-  //must create a path to the image to link field of the object
+  // must create a path to the image to link field of the object
   cardImageElement.src = cardData.link;
 
-  //set the image alt text to the name field of the object
+  // set the image alt text to the name field of the object
   cardImageElement.alt = cardData.name;
 
-  //set the card title to the name field of the object
+  // set the card title to the name field of the object
   cardTitleElement.textContent = cardData.name;
 
   /* -----------CARD IMAGE CLICKED----------------*/
 
-  //Card Image Preview - EL (Event Listener)
+  // Card Image Preview - EL (Event Listener)
 
   cardImageElement.addEventListener("click", () => {
     // u will seean image preview on image preview modal
@@ -174,7 +177,7 @@ function getCardElement(cardData) {
     imageElement.src = cardData.link;
     imageElement.alt = cardData.name;
 
-    //text view underneath the image view modal
+    // text view underneath the image view modal
     const titleElement = imagePreviewModal.querySelector(
       "#javascript-image-preview-card-title"
     );
@@ -184,15 +187,15 @@ function getCardElement(cardData) {
     openPopup(imagePreviewModal);
   }); //end function
 
-  //delete button
+  // delete button
   setDeleteHandler(cardElement);
 
-  //like button
+  // like button
   setLikeHandler(cardElement);
 
-  //go back to the ready HTML element c the completed data
+  // go back to the ready HTML element c the completed data
   return cardElement;
-} //end the function
+} // end the function
 
 // helper function
 function renderCard(cardData, container) {
@@ -201,12 +204,12 @@ function renderCard(cardData, container) {
 } // end of function
 
 function setLikeHandler(element) {
-  //the like button
+  // the like button
   const cardLikeButton = element.querySelector("#javascript-card__like-button");
   cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("card__like-button-active");
   });
-} //end function
+} // end function
 
 function setDeleteHandler(element) {
   const cardDeleteButton = element.querySelector(
@@ -215,26 +218,24 @@ function setDeleteHandler(element) {
   cardDeleteButton.addEventListener("click", () => {
     element.remove();
   });
-} //end trash or delete function
+} // end trash or delete function
 
 /* -----------------EVENT HANDLERS ------------------------------>*/
-//CLICKING THE PROFILE EDIT BUTTON -  OPENs THE MODAL
 
-//PROFILE EDIT MDOAL CLICKED WHICH OPENS THE POP UP
+// CLICKING THE PROFILE EDIT BUTTON -  OPENs THE MODAL
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent; //prefilled form c profile title
-  profileDescriptionInput.value = profileDescription.textContent; //prefilled form c the profile description
+  profileTitleInput.value = profileTitle.textContent; // prefilled form c profile title
+  profileDescriptionInput.value = profileDescription.textContent; // prefilled form c the profile description
   openPopup(profileEditModal);
 });
 
-//PROFILE EDIT MODAL BOX IS CLOSED WHEN BUTTON IS CLICKED
 profileCloseModal.addEventListener("click", () => closePopup(profileEditModal));
 
-//PROFILE EDIT MODAL BOX IS SAVED WHEN BUTTON IS CLICKED
+// PROFILE EDIT MODAL BOX IS SAVED WHEN BUTTON IS CLICKED line66
 profileEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  profileTitle.textContent = profileTitleInput.value; //form text criteria to a profile value
-  profileDescription.textContent = profileDescriptionInput.value; //form text content into the profile value
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
 });
 
@@ -251,7 +252,7 @@ addCardButtonForm.addEventListener("submit", (event) => {
   const name = newCardTitleInput.value; //new card TITLE value
   const link = newCardUrlInput.value; //new card URL value
 
-  //calling Render Card Function
+  // calling Render Card Function
   renderCard({ name, link }, cardListElement);
   event.target.reset();
   closePopup(addCardModal);
@@ -267,5 +268,5 @@ imageClosePreviewModal.addEventListener("click", () =>
   closePopup(imagePreviewModal)
 );
 
-//rendering Card c ForEach() instead of ForLoop()
+// rendering Card c ForEach() instead of ForLoop()
 initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
