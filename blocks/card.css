@@ -48,10 +48,9 @@
   background: transparent url(../card-images/likebutton.svg) center no-repeat;
   transition: opacity 0.3s linear;
   border: 0 solid white;
-  transition: opacity 1s;
   margin: 0;
   padding: 0;
-  min-width: 21px;
+  width: 21px;
   height: 18px;
   align-self: center;
 }

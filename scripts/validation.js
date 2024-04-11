@@ -1,11 +1,11 @@
 //--------------------Function showing input error-------------------->>
 function showInputError(formEl, inputEl, opts) {
   const { inputErrorClass, errorClass } = opts;
-  const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`);
+  const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`); // name name-error, description description-error
 
   inputEl.classList.add(inputErrorClass);
   //will get a vaildation message
-  //display error message
+  //error message
   errorMessageElement.textContent = inputEl.validationMessage;
   //add error class to the input
   inputEl.classList.add(errorClass);

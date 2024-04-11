@@ -1,28 +1,26 @@
 .profile {
-  padding-top: 40px;
   display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
   flex-direction: row;
   width: 100%;
-  align-items: center;
 }
 
 .profile__image {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  background-position: center;
-  margin-right: 24px;
+  border-radius: 100%;
 }
 
-.profile__info {
+.profile__content {
   display: grid;
+  margin: 22px 0 auto 30px;
+  gap: 7px 18px;
   grid-template-areas:
     "title button"
     "description description";
-  gap: 7px 18px;
-  margin: 22px 0 auto 30px;
-  grid-template-columns: minmax(auto, 400px) auto;
+  grid-gap: 5px 18px;
+  grid-template-columns: minmax(auto, 373px) auto;
 }
 
 .profile__title {
@@ -39,22 +37,7 @@
 }
 
 .profile__description {
-  font-family: Inter, Arial, san-serif;
-  width: 372px;
-  height: 18px;
-  top: 236px;
-  left: 350px;
-  color: white;
-  font-size: 18px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: 0em;
-  grid-area: description;
   margin: 0 0 0 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .profile__edit-button {

@@ -43,12 +43,10 @@ const profileCloseModal = profileEditModal.querySelector(
 );
 
 //----PROFILE TITLE---->>
-const profileTitle = document.querySelector("#javascript-profile-title");
+const profileTitle = document.querySelector(".profile__title");
 
 //----PROFILE DESCRIPTION------>>
-const profileDescription = document.querySelector(
-  "#javascript-profile-description"
-);
+const profileDescription = document.querySelector(".profile__description");
 
 //----PROFILE TITLE INPUT------>>
 const profileTitleInput = document.querySelector(
