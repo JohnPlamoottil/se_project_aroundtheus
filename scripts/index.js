@@ -205,7 +205,7 @@ function setLikeHandler(element) {
   // the like button
   const cardLikeButton = element.querySelector("#javascript-card__like-button");
   cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button-active");
+    cardLikeButton.classList.toggle("card__like-button_active");
   });
 } // end function
 

@@ -1,9 +1,11 @@
 .profile {
   display: flex;
+  max-width: 880px;
   padding-top: 40px;
   padding-bottom: 40px;
   flex-direction: row;
   width: 100%;
+  margin: 0 auto;
 }
 
 .profile__image {
@@ -79,7 +81,6 @@
 @media screen and (max-width: 775px) {
   .profile {
     flex-direction: column;
-    margin: 0;
   }
 
   .profile__info {

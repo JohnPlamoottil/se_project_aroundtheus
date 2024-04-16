@@ -11,6 +11,11 @@
   margin: 0;
 }
 
+@media screen and (max-width: 920px) {
+  .footer {
+    max-width: 582px;
+  }
+}
 @media screen and (max-width: 770px) {
   .footer {
     align-self: self-start;
