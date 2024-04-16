@@ -66,34 +66,37 @@
             name="profileForm"
             novalidate
           >
-            <input
-              type="text"
-              name="title"
-              class="modal__input"
-              placeholder="Name"
-              id="javascript-profile-title-input"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span
-              class="modal__error"
-              id="javascript-profile-title-input error"
-            ></span>
-
-            <input
-              type="text"
-              name="description"
-              class="modal__input"
-              id="javascript-profile-description-input"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span
-              class="modal__error"
-              id="javascript-profile-description-input-error"
-            ></span>
+            <label class="modal__label">
+              <input
+                type="text"
+                name="title"
+                class="modal__input"
+                placeholder="Name"
+                id="javascript-profile-title-input"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span
+                class="modal__error"
+                id="javascript-profile-title-input error"
+              ></span>
+            </label>
+            <label class="modal__label">
+              <input
+                type="text"
+                name="description"
+                class="modal__input"
+                id="javascript-profile-description-input"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span
+                class="modal__error"
+                id="javascript-profile-description-input-error"
+              ></span>
+            </label>
             <button
               class="modal__submit-button modal__button"
               id="javascript-modal__button"
@@ -120,33 +123,36 @@
             novalidate
             id="javascript-modal-add-card-form"
           >
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              class="modal__input"
-              id="javascript-add-card-title-input"
-              minlength="2"
-              maxlength="30"
-              required
-            />
-            <span
-              class="modal__error"
-              id="javascript-add-card-title-input-error"
-            ></span>
-
-            <input
-              type="url"
-              name="url"
-              placeholder="Image URL"
-              class="modal__inputs"
-              id="javascript-add-card-description-input"
-              required
-            />
-            <span
-              class="modal__error"
-              id="javascript-add-card-title-input-error"
-            ></span>
+            <label class="modal__label">
+              <input
+                type="text"
+                name="title"
+                placeholder="Title"
+                class="modal__input"
+                id="javascript-add-card-title-input"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+              <span
+                class="modal__error"
+                id="javascript-add-card-title-input-error"
+              ></span>
+            </label>
+            <label class="modal__label">
+              <input
+                type="url"
+                name="url"
+                placeholder="Image URL"
+                class="modal__input modal__inputs"
+                id="javascript-add-card-description-input"
+                required
+              />
+              <span
+                class="modal__error"
+                id="javascript-add-card-title-input-error"
+              ></span>
+            </label>
             <button class="modal__save-button modal__button" disabled>
               Create
             </button>
