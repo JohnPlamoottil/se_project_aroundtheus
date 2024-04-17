@@ -17,7 +17,7 @@ function showInputError(formEl, inputEl, opts) {
 function hideInputError(formEl, inputEl, opts) {
   const { inputErrorClass, errorClass } = opts;
 
-  const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`);
+  const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`); // banana banana-error
   inputEl.classList.remove(inputErrorClass);
   errorMessageElement.textContent = "";
   inputEl.classList.remove(errorClass);
@@ -36,8 +36,9 @@ function checkInputValidity(formEls, inputEls, opt) {
 
 //--------------------Function Toggling Button State-------------------->>
 function toggleButtonState(inputEl, btn, opts) {
+  console.log(inputEl, btn, opts);
   const { inactiveButtonClass } = opts;
-  inputEls = Array.from(inputEls);
+  inputEl = Array.from(inputEl);
 
   let isValid = true; // assuming all inputs are true initially
   inputEl.forEach((inputEl) => {

@@ -247,11 +247,15 @@ const addCardButtonForm = addCardModal.querySelector(
 
 addCardButtonForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const name = newCardTitleInput.value; //new card TITLE value
-  const link = newCardUrlInput.value; //new card URL value
-
+  console.log(event.target);
+  // const name = newCardTitleInput.value; //new card TITLE value
+  // const link = newCardUrlInput.value; //new card URL value
+  const name = document.getElementById("javascript-add-card-title-input").value;
+  const link = document.getElementById(
+    "javascript-add-card-description-input"
+  ).value;
   // calling Render Card Function
-  renderCard({ name, link }, cardListElement);
+  renderCard({ name, link }, cardListElement); // TODO -> issue inside
   event.target.reset();
   closePopup(addCardModal);
 });
