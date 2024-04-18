@@ -74,21 +74,18 @@
 }
 
 .modal__close {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
   position: absolute;
-  /*top: -45px;*/
-  bottom: calc(100% + 5px);
-  /*right: -45px;*/
-  left: calc(100% + 5px);
-  width: 40px;
-  height: 40px;
   background-image: url(../card-images/Close.svg);
   background-repeat: no-repeat;
-  background-size: contain;
-  /*outline: none;*/
-  cursor: pointer;
+  background-color: transparent;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  border: 0;
+  padding: 0;
+  transition: opacity 0.3s linear;
 }
 
 .modal__close:hover {
