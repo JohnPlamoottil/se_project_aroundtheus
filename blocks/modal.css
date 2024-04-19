@@ -29,20 +29,13 @@
 }
 
 .modal__container {
-  margin: auto;
-  background-color: #fff;
-  padding: 36px;
+  position: relative;
+  width: 430px;
+  height: 330px;
+  /* top: 195px; */
+  /* left: 425px; */
   border-radius: 10px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  max-width: 400px;
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  background-color: #ffffff;
   padding: 34px;
 }
 
@@ -52,13 +45,15 @@
 }
 
 .modal__title {
-  font-family: Inter, Arial, sans-serif;
+  width: 330px;
+  height: 23px;
+  top: 229px;
+  left: 461px;
+  font-family: Inter, Arial, san-serif;
   font-size: 24px;
+  font-style: normal;
   font-weight: 900;
-  line-height: 56px;
-  letter-spacing: 0em;
-  text-align: left;
-  margin: 0;
+  line-height: 29.05px;
 }
 
 .modal_opened {
@@ -74,17 +69,21 @@
 }
 
 .modal__close {
+  width: 40.7px;
+  height: 40.7px;
+  /* top: 214px;
+  left: 880.78px; */
+  top: calc(0% - 40px);
+  left: calc(100% + 5px);
+  gap: 0px;
+  opacity: 0px;
+
   position: absolute;
   background-image: url(../card-images/Close.svg);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: cover;
-  width: 40px;
-  height: 40px;
-  bottom: calc(100% + 5px);
-  left: calc(100% + 5px);
   border: 0;
-  padding: 0;
   transition: opacity 0.3s linear;
 }
 
@@ -92,25 +91,10 @@
   opacity: 0.6;
   cursor: pointer;
 }
-
+/* error field with red text */
 .modal__form {
   display: flex;
   flex-direction: column;
-}
-
-.modal__close-button {
-  background-image: url(../card-images/Close.svg);
-  border: none;
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: -48px;
-  right: -48px;
-  rotate: 45px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
 }
 
 .modal__button {
@@ -147,26 +131,34 @@
   opacity: 80%;
 }
 
+/* New Place Link field */
 .modal__inputs {
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+  /* background-color: #c4c4c4; */
 }
 
 .modal__input {
   width: 100%;
-  height: 14px;
-  /* padding: 0 0 13px; */
-  color: #000;
-  border: 0;
+  height: 27.08px;
+  top: 306.17px;
+  left: 461px;
+  gap: 0px;
+  padding: 0 0 0 2px;
+  border-width: 0 0 1px 0;
+  line-height: 17px;
+  font-size: 14px;
+  opacity: 0px;
+
+  /* color: #000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-  /*alpha = opacity*/
   margin-bottom: 30px;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 0 0 7px;
+  margin: 0 0 7px; */
 }
 
 .modal__input_type_error {
@@ -231,11 +223,11 @@
 }
 
 .modal__image-title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   word-wrap: break-word;
   margin: 10px 0 0;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 14.52px;
   font-weight: 400;
   color: white;
 }

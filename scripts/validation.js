@@ -1,6 +1,6 @@
 //--------------------Function showing input error-------------------->>
-function showInputError(formEl, inputEl, opts) {
-  const { inputErrorClass, errorClass } = opts;
+function showInputError(formEl, inputEl, options) {
+  const { inputErrorClass, errorClass } = options;
   const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`); // name name-error, description description-error
 
   inputEl.classList.add(inputErrorClass);
@@ -9,35 +9,32 @@ function showInputError(formEl, inputEl, opts) {
   errorMessageElement.textContent = inputEl.validationMessage;
   //add error class to the input
   inputEl.classList.add(errorClass);
-
-  //end of function
 }
 
 //--------------------Function hiding input error-------------------->>
-function hideInputError(formEl, inputEl, opts) {
-  const { inputErrorClass, errorClass } = opts;
+function hideInputError(formEl, inputEl, options) {
+  const { inputErrorClass, errorClass } = options;
 
   const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`); // banana banana-error
   inputEl.classList.remove(inputErrorClass);
   errorMessageElement.textContent = "";
   inputEl.classList.remove(errorClass);
-} // end of function
+}
 
 //--------------------Function checking invalid input-------------------->>
-function checkInputValidity(formEls, inputEls, opt) {
-  //if inputs are invalid
+function checkInputValidity(formEls, inputEls, options) {
+  // input validation
   if (!inputEls.validity.valid) {
-    showInputError(formEls, inputEls, opt);
-  } // end of if statement
-  else {
-    hideInputError(formEls, inputEls, opt);
-  } // end of else statment
-} // end of function
+    showInputError(formEls, inputEls, options);
+  } else {
+    hideInputError(formEls, inputEls, options);
+  }
+}
 
 //--------------------Function Toggling Button State-------------------->>
-function toggleButtonState(inputEl, btn, opts) {
+function toggleButtonState(inputEl, btn, options) {
   console.log(inputEl, btn, opts);
-  const { inactiveButtonClass } = opts;
+  const { inactiveButtonClass } = options;
   inputEl = Array.from(inputEl);
 
   let isValid = true; // assuming all inputs are true initially
@@ -46,19 +43,19 @@ function toggleButtonState(inputEl, btn, opts) {
     if (!inputEl.validity.valid) {
       //if any inputs that are not valid but is Valid then set to false
       isValid = false;
-    } // end if statement
+    }
   });
   // if any inputs are valid then use enable button
   if (isValid) {
     btn.classList.remove(inactiveButtonClass);
     btn.disabled = false;
-  } // end if statment
+  }
   //if any inputs are invalid then use disable button
   else {
     btn.classList.add(inactiveButtonClass);
     btn.disabled = true;
-  } // end of else statement
-} // end of function
+  }
+}
 
 //--------------------Function on Setting Event Listeners-------------------->>
 function setEventListeners(formElements, options) {
@@ -73,7 +70,7 @@ function setEventListeners(formElements, options) {
       toggleButtonState(inputElement, submitButton, options); //togglebutton(inputEl, submitbutton, options)
     });
   });
-} // end of function
+}
 //--------------------Function on Enabling Validation-------------------->>
 function enableValidation(setup) {
   const allFormElements = Array.from(
@@ -86,7 +83,7 @@ function enableValidation(setup) {
 
     setEventListeners(formEl, setup);
   });
-} // end of function
+}
 
 //--------------------Config Object-------------------->>
 const config = {

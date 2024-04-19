@@ -70,7 +70,7 @@ const cardTemplate = document.querySelector("#javascript-card-template").content
 const cardListElement = document.querySelector("#javascript-cards__list");
 
 const addCardModal = document.querySelector("#javascript-add-card-modal");
-
+//forms are easier way to find the form
 const addCardForm = addCardModal.querySelector(
   "#javascript-add-card-title-input"
 );
@@ -141,8 +141,8 @@ function handleModalCloseEscPressDown(evt) {
   if (evt.key === "Escape") {
     const modalOpened = document.querySelector(".modal_opened");
     closePopup(modalOpened);
-  } // end of if statement
-} // end of function
+  }
+}
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
