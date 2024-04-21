@@ -33,7 +33,7 @@ function checkInputValidity(formEls, inputEls, options) {
 
 //--------------------Function Toggling Button State-------------------->>
 function toggleButtonState(inputEl, btn, options) {
-  console.log(inputEl, btn, opts);
+  console.log(inputEl, btn, options);
   const { inactiveButtonClass } = options;
   inputEl = Array.from(inputEl);
 
