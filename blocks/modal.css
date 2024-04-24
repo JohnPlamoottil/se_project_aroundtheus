@@ -255,7 +255,7 @@
   display: block;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 634px) {
   .modal__container {
     padding: 25px 22px;
     gap: 30px;
@@ -300,6 +300,16 @@
     line-height: 17px;
     height: 46px;
     margin-top: 15px;
+  }
+
+  .modal__close_form {
+    top: -69.3px;
+    left: 418px;
+  }
+
+  .modal__close_preview {
+    width: 30px;
+    height: 30px;
   }
 }
 
