@@ -8,7 +8,7 @@ function showInputError(formEl, inputEl, options) {
   //error message
   errorMessageElement.textContent = inputEl.validationMessage;
   //add error class to the input
-  inputEl.classList.add(errorClass);
+  errorMessageElement.classList.add(errorClass);
 }
 
 //--------------------Function hiding input error-------------------->>
@@ -18,7 +18,7 @@ function hideInputError(formEl, inputEl, options) {
   const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`); // banana banana-error
   inputEl.classList.remove(inputErrorClass);
   errorMessageElement.textContent = "";
-  inputEl.classList.remove(errorClass);
+  errorMessageElement.classList.remove(errorClass);
 }
 
 //--------------------Function checking invalid input-------------------->>

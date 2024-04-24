@@ -31,9 +31,7 @@
 .modal__container {
   position: relative;
   width: 430px;
-  height: 330px;
-  /* top: 195px; */
-  /* left: 425px; */
+  /* height: 330px; */
   border-radius: 10px;
   background-color: #ffffff;
   padding: 34px 36px 36.51px 36px;
@@ -105,10 +103,13 @@
   background: #000;
   color: #fff;
   border: none;
+  top: 438.34px;
+  left: 461px;
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
-  margin-top: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .modal__submit-button {
@@ -237,20 +238,21 @@
 
 .modal__error {
   font-family: "Inter", Arial, sans-serif;
-  line-height: 30px;
+  line-height: 12px;
+  margin-top: 12px;
   font-size: 12px;
   max-width: 100%;
   top: calc(100% + 6px);
   min-height: 30px;
   left: 0;
-  display: block;
-  font-size: 12px;
+  display: none;
   color: red;
   transition: opacity 1s;
 }
 
 .modal__error_active {
   opacity: 1;
+  display: block;
 }
 
 @media screen and (max-width: 650px) {

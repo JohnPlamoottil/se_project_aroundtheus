@@ -102,9 +102,6 @@
   .profile__description {
     width: 100%;
     text-align: center;
-    /* line-height: 17px;
-    font-size: 14px;
-    max-width: 220px; */
   }
 
   .profile__edit-button {
