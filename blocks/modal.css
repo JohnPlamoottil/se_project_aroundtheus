@@ -35,11 +35,7 @@
   border-radius: 10px;
   background-color: #ffffff;
   padding: 34px 36px 36.51px 36px;
-}
-
-.modal__container:hover {
-  opacity: 0.6px;
-  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .modal__title {
@@ -62,11 +58,6 @@
   opacity: 1;
 }
 
-.modal_opened:hover {
-  opacity: 0.6px;
-  cursor: pointer;
-}
-
 .modal__close {
   width: 40.7px;
   height: 40.7px;
@@ -75,7 +66,6 @@
   top: calc(0% - 40px);
   left: calc(100% + 5px);
   gap: 0px;
-  opacity: 0px;
 
   position: absolute;
   background-image: url(../card-images/Close.svg);
@@ -87,7 +77,6 @@
 }
 
 .modal__close:hover {
-  opacity: 0.6;
   cursor: pointer;
 }
 /* error field with red text */
@@ -128,9 +117,9 @@
   cursor: pointer;
 }
 
-.modal__submut-button:hover {
+.modal__submit-button:hover {
   cursor: pointer;
-  opacity: 80%;
+  opacity: 10%;
 }
 
 /* New Place Link field */
@@ -154,6 +143,7 @@
   font-size: 14px;
   height: 27px;
   width: 100%;
+  margin-top: 8px;
 }
 
 .modal__input_type_error {
@@ -189,7 +179,7 @@
   line-height: 22px;
   padding: 0;
   border: 0;
-  margin-top: 18px;
+  margin-top: 40px;
   transition: opacity 0.3s linear;
   width: 100%;
   height: 50.15px;
@@ -197,18 +187,18 @@
   left: 461px;
   gap: 0px;
   border-radius: 2px 0px 0px 0px;
-  opacity: 0px;
+  opacity: 1;
 }
 
 .modal__button:hover:not(:disabled) {
-  opacity: 0.8;
+  opacity: 1;
   cursor: pointer;
 }
 
 .modal__button:disabled {
   border: 2px solid #000000;
   background-color: #ffffff;
-  opacity: 0.2;
+  opacity: 0.8;
   color: #000000;
 }
 
@@ -238,16 +228,17 @@
 
 .modal__error {
   font-family: "Inter", Arial, sans-serif;
-  line-height: 12px;
-  margin-top: 12px;
+  line-height: 9px;
+  /* margin-top: 12px; */
   font-size: 12px;
   max-width: 100%;
   top: calc(100% + 6px);
-  min-height: 30px;
+  /* min-height: 30px; */
   left: 0;
   display: none;
   color: red;
   transition: opacity 1s;
+  position: absolute;
 }
 
 .modal__error_active {
@@ -303,8 +294,9 @@
   }
 
   .modal__close_form {
-    top: -69.3px;
-    left: 418px;
+    top: -46px;
+    height: 40px;
+    left: 386px;
   }
 
   .modal__close_preview {
@@ -317,5 +309,22 @@
   .modal__close_type_form {
     bottom: calc(100% + 14px);
     left: calc(100% - 26px);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__container {
+    width: 282px;
+  }
+
+  .modal__close_form {
+    top: -39px;
+    height: 26px;
+    width: 26px;
+    left: 251px;
+  }
+
+  .modal__close_preview {
+    width: 30px;
   }
 }
