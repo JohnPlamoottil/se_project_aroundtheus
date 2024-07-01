@@ -55,7 +55,7 @@
   align-self: center;
 }
 
-.card__like-button_active {
+.card__like-button_is-active {
   background: transparent url(../card-images/heart-icon-black.svg) center
     no-repeat;
   opacity: 1;

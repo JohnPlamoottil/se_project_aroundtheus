@@ -1,4 +1,4 @@
-# Project 6: Around the USA
+# Project 7: Around the USA
 
 ### Overview
 

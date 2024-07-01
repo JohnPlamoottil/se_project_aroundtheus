@@ -1,3 +1,6 @@
+import Card from "./card.js";
+import FormValidator from "./FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -71,9 +74,7 @@ const cardListElement = document.querySelector("#javascript-cards__list");
 
 const addCardModal = document.querySelector("#javascript-add-card-modal");
 //forms are easier way to find the form
-const addCardForm = addCardModal.querySelector(
-  "#javascript-add-card-title-input"
-);
+const addCardForm = addCardModal.querySelector(".modal__form");
 
 const newCardTitleInput = addCardForm.querySelector(
   "#javascript-add-card-title-input"
@@ -100,6 +101,24 @@ const imagePreviewModal = document.querySelector(
 const imageClosePreviewModal = document.querySelector(
   "#javascript-image-preview-close-modal"
 );
+
+/* -------------------------------------------------------------------------- */
+/*                                   objects                                  */
+/* -------------------------------------------------------------------------- */
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_active",
+};
+
+const editProfileFormValidator = new FormValidator(config, profileEditForm);
+const addCardFormValidator = new FormValidator(config, addCardForm);
+
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
 
 /*------------------------------------FUNCTIONS---------------------------------*/
 
@@ -197,7 +216,9 @@ function getCardElement(cardData) {
 
 // helper function
 function renderCard(cardData, container) {
-  const cardElement = getCardElement(cardData);
+  // const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#javascript-card-template");
+  const cardElement = card.getView();
   container.prepend(cardElement);
 } // end of function
 
@@ -241,23 +262,18 @@ profileEditForm.addEventListener("submit", (event) => {
 profileAddCardButton.addEventListener("click", () => openPopup(addCardModal));
 
 // the plus + button for profile Add Card modal CLOSES when clicked
-const addCardButtonForm = addCardModal.querySelector(
-  "#javascript-modal-add-card-form"
-);
 
-addCardButtonForm.addEventListener("submit", (event) => {
+addCardForm.addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(event.target);
-  // const name = newCardTitleInput.value; //new card TITLE value
-  // const link = newCardUrlInput.value; //new card URL value
-  const name = document.getElementById("javascript-add-card-title-input").value;
-  const link = document.getElementById(
-    "javascript-add-card-description-input"
-  ).value;
+  const name = newCardTitleInput.value; //new card TITLE value
+  const link = newCardUrlInput.value; //new card URL value
+
   // calling Render Card Function
   renderCard({ name, link }, cardListElement); // TODO -> issue inside
   event.target.reset();
   closePopup(addCardModal);
+  addCardFormValidator.disableSubmitButton();
 });
 
 addCardModalCloseButton.addEventListener("click", () =>
@@ -271,4 +287,6 @@ imageClosePreviewModal.addEventListener("click", () =>
 );
 
 // rendering Card c ForEach() instead of ForLoop()
-initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
+initialCards.forEach((cardData) => {
+  renderCard(cardData, cardListElement);
+});

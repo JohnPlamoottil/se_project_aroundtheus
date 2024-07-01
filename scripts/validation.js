@@ -96,3 +96,8 @@ const config = {
 };
 
 enableValidation(config);
+
+// const editProfileFormValidator = new FormValidator(config, editProfileForm)
+// const addCardFormValidator = new FormValidator(config, addCardForm)
+
+// editProfileFormValidator.hideInputError()
