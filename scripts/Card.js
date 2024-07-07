@@ -1,11 +1,12 @@
 export default class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, expand) {
     console.log({ name, link });
     console.log(this);
     this._name = name;
     console.log(this);
     this._link = link;
     this._cardSelector = cardSelector;
+    this._expand = expand;
   }
 
   testMethod() {
@@ -25,6 +26,13 @@ export default class Card {
       console.log("REMOVE");
       // this._handleTrashIcon("click-trash"); instead of this function, you need to create and call a different one, which will remove the card!
       this._handleCardDelete();
+    });
+
+    this._cardImage.addEventListener("click", () => {
+      this._expand({
+        name: this._name,
+        link: this._link,
+      });
     });
 
     //""

@@ -35,6 +35,10 @@ const profileEditModal = document.querySelector(
   "#javascript-profile-edit-modal"
 );
 
+const cardPreviewModal = document.querySelector(
+  "#javascript-image-preview-modal"
+);
+
 //----PROFILE EDIT BUTTON--->>
 const profileEditButton = document.querySelector(
   "#javascript-profile-edit-button"
@@ -100,6 +104,10 @@ const imagePreviewModal = document.querySelector(
 
 const imageClosePreviewModal = document.querySelector(
   "#javascript-image-preview-close-modal"
+);
+
+const imageCaption = document.querySelector(
+  "#javascript-image-preview-card-title"
 );
 
 /* -------------------------------------------------------------------------- */
@@ -214,11 +222,23 @@ function getCardElement(cardData) {
   return cardElement;
 } // end the function
 
+function expand({ name, link }) {
+  document.getElementById("javascript-preview__image").src = link;
+  imageCaption.textContent = name;
+
+  // set text content done 8.19pm july6 c kevin
+  // on the row above I found the image, you need to find name and fill it with name
+  openPopup(cardPreviewModal);
+}
+
 // helper function
+function createCard(item) {
+  const cardElement = new Card(item, "javascript-card-template", expand);
+  return cardElement.getView();
+}
 function renderCard(cardData, container) {
   // const cardElement = getCardElement(cardData);
-  const card = new Card(cardData, "#javascript-card-template");
-  const cardElement = card.getView();
+  const cardElement = createCard(cardData);
   container.prepend(cardElement);
 } // end of function
 
