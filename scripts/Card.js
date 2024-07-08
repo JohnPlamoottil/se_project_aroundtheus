@@ -1,17 +1,14 @@
 export default class Card {
   constructor({ name, link }, cardSelector, expand) {
-    console.log({ name, link });
-    console.log(this);
     this._name = name;
-    console.log(this);
     this._link = link;
     this._cardSelector = cardSelector;
     this._expand = expand;
   }
 
-  testMethod() {
-    console.log(this.name);
-  }
+  // testMethod() {
+  //   console.log(this.name);
+  // }
 
   _setEventListeners() {
     this._likeButton = this._cardElement.querySelector(".card__like-button");
@@ -23,7 +20,6 @@ export default class Card {
     });
 
     this._trashButton.addEventListener("click", () => {
-      console.log("REMOVE");
       // this._handleTrashIcon("click-trash"); instead of this function, you need to create and call a different one, which will remove the card!
       this._handleCardDelete();
     });
@@ -63,7 +59,6 @@ export default class Card {
     this._cardImage.alt = this._name;
     this._setEventListeners();
     //return the card
-    console.log(this._cardElement);
     return this._cardElement;
   }
 }

@@ -171,57 +171,6 @@ function handleModalCloseEscPressDown(evt) {
   }
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  // clone template element c all its contents and store it in a cardElement variable
-
-  // this will give access for the card title and image so it will store them in variables
-  const cardImageElement = cardElement.querySelector("#javascript-card__image");
-
-  const cardTitleElement = cardElement.querySelector("#javascript-card__title");
-
-  // must create a path to the image to link field of the object
-  cardImageElement.src = cardData.link;
-
-  // set the image alt text to the name field of the object
-  cardImageElement.alt = cardData.name;
-
-  // set the card title to the name field of the object
-  cardTitleElement.textContent = cardData.name;
-
-  /* -----------CARD IMAGE CLICKED----------------*/
-
-  // Card Image Preview - EL (Event Listener)
-
-  cardImageElement.addEventListener("click", () => {
-    // u will seean image preview on image preview modal
-
-    const imageElement = imagePreviewModal.querySelector(
-      "#javascript-card__image"
-    );
-    imageElement.src = cardData.link;
-    imageElement.alt = cardData.name;
-
-    // text view underneath the image view modal
-    const titleElement = imagePreviewModal.querySelector(
-      "#javascript-image-preview-card-title"
-    );
-    titleElement.textContent = cardData.name;
-
-    // to open the image preview modal popup
-    openPopup(imagePreviewModal);
-  }); //end function
-
-  // delete button
-  setDeleteHandler(cardElement);
-
-  // like button
-  setLikeHandler(cardElement);
-
-  // go back to the ready HTML element c the completed data
-  return cardElement;
-} // end the function
-
 function expand({ name, link }) {
   document.getElementById("javascript-preview__image").src = link;
   imageCaption.textContent = name;
@@ -233,7 +182,7 @@ function expand({ name, link }) {
 
 // helper function
 function createCard(item) {
-  const cardElement = new Card(item, "javascript-card-template", expand);
+  const cardElement = new Card(item, "#javascript-card-template", expand);
   return cardElement.getView();
 }
 function renderCard(cardData, container) {
@@ -285,7 +234,6 @@ profileAddCardButton.addEventListener("click", () => openPopup(addCardModal));
 
 addCardForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(event.target);
   const name = newCardTitleInput.value; //new card TITLE value
   const link = newCardUrlInput.value; //new card URL value
 

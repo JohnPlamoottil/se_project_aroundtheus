@@ -74,15 +74,15 @@ export default class FormValidator {
   _setEventListeners() {
     // tries to find all the inputs inside of forms
     const { inputSelector, submitButtonSelector } = this._options;
-    const inputElement = Array.from(
+    const inputElements = Array.from(
       this._formElement.querySelectorAll(inputSelector)
     );
 
-    inputElement.forEach((inputEl) => {
+    inputElements.forEach((inputEl) => {
       inputEl.addEventListener("input", (evt) => {
         // loop thru all inputs checking whether they are valid
         this._checkInputValidity(inputEl);
-        this._toggleButtonState(inputElement); //togglebutton(inputEl, submitbutton, options)
+        this._toggleButtonState(inputElements); //togglebutton(inputEl, submitbutton, options)
       });
     });
   }
