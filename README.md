@@ -89,7 +89,7 @@ In Sprint6, I started to debug JS using console.log() to validate changes made o
 5. Debugging in Javascript
    1. console.log
 
-In Sprint7, the purpose is to change javascript classes as Max pointed out in his tutorial. The classes to focus on are card.js and FormValidator.js with text and images in the scripts folder.
+In Sprint7, the purpose is to change javascript classes as Max pointed out in his tutorial. The classes to focus on are Card.js and FormValidator.js with text and images in the scripts folder. Refactoring the code by removing validation.js and shifting to Card.js and FormValidator.js
 
 1. Intro to Object Oriented Programming OOP
    1. program - a set of interacting objects that make up a single structure

@@ -48,10 +48,10 @@ export default class FormValidator {
   _toggleButtonState(inputEl) {
     console.log(inputEl, this._options);
     const { inactiveButtonClass } = this._options;
-    inputEl = Array.from(inputEl);
+    this._inputEls = Array.from(inputEl);
 
     let isValid = true; // assuming all inputs are true initially
-    inputEl.forEach((inputEl) => {
+    this._inputEls.forEach((inputEl) => {
       // if the input validity is true
       if (!inputEl.validity.valid) {
         //if any inputs that are not valid but is Valid then set to false
@@ -65,8 +65,7 @@ export default class FormValidator {
     }
     //if any inputs are invalid then use disable button
     else {
-      this._submitButton.classList.add(inactiveButtonClass);
-      this._submitButton.disabled = true;
+      this.disableSubmitButton();
     }
   }
 
