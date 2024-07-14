@@ -1,4 +1,4 @@
-# Project 7: Around the USA
+# Project 8: Around the USA
 
 ### Overview
 
@@ -14,6 +14,11 @@
 - OOP (7)
 - interfaces in OOP (7)
 - Modular JS introduction (7)
+- WebPack(8)
+- Section handles the rendering of Card instances on the page (8)
+- Popup is basic popup class responsible for opening/closing popups (8)
+- PopupWithImage and PopupWithForm are subclasses of Popup implementing the image popups and forms. (8)
+- UserInfo gets and sets the users profile info (8)
 
 **Descriptions**
 
@@ -94,15 +99,131 @@ In Sprint7, the purpose is to change javascript classes as Max pointed out in hi
 1. Intro to Object Oriented Programming OOP
    1. program - a set of interacting objects that make up a single structure
    2. object - store data and have methods enabling that data to be passed from one obj to another
-   3. encapsulation -
-   4. inheritance -
-   5. polymorphism -
+   3. encapsulation - in OOP, the practice of hiding much of the internal complexity of a program from its end users; an user interphase UI. private methods are denoted with underscore and an # to enforce private status. public methods does not have _ underscore.
+   4. inheritance - in OOP, its the mechanism of using one class to form the basis of another. the original former one is the PARENT or superclass, while the latter one is CHILD or subclass. 
+   5. polymorphism - the ability of objects c the same interface to have different implementation. the ability of a subclass to expand upon the functionality that it inherits from its parent or superclass class; method overriding. 
    6. properties - key-value pairs
    7. method - the value is a function
-      8
-2. Interfaces in OOP
-3. Intro to Modular Javascript
+   
+2. Interfaces in OOP Part1
+   1. Working With a Markup Template Inside a Class
+      1. Page elements can be categorized as either static or dynamic.
+         1. Static elements stay the same over multiple pages.
+         2. Dynamic elements can change, often on input by the user, and even without the page being refreshed.
+      - Static elements are best written in HTML. 
+      - Dynamic elements, on the other hand, can be created in scripts, preferably      utilizing HTML <template> elements.
+   1. Adding Data to Markup and Inserting it into the DOM
+      1. Expanded Card class example
+   2. Scaling a JavaScript Class
+      1. Passing an object to the constructor method
+   3. Event Handlers
+      1. To add event listeners to our Card elements, we will define a private method _setEventListeners which gets called inside of the public generateCard method.
+   4. Applied Inheritance
+      1. using SUPER to call methods of the parent class
+      2. create instances of the subclass
+   5. Polymorphism
+ 
+1. Intro to Modular Javascript
+   1. immediately invoked function expression IIFE - an anonymous function that runs as soon as its defined. since all variables inside a function are LOCAL VARIABLES, wrapping all the code inside an IIFE will prevent any of them from being global or preventing it from being accessed from outside the IIFE. 
+   2. Modules is an independent unit of code supporting a part of the program's functionality.  
+   3. Export and Import Statements
+      1. Export syntax:
+         1. `export const array = [1, 2, 3]` — export on declaration.
+         2. `export { dog, cat }` — export multiple entities separate from their declaration.
+         3. `export default data` — export a single variable, function, or class.
+      2. Import syntax:
+         1. `import { array } from "./data.js"` — import using a feature's original name.
+         2. `import *` — import all exports.
+         3. `import { array as arr } from "./data.js"` — rename feature on import.
+         4. `import data from "./data.js"`; — import of a default export (no curly braces needed).
+   4. Browser-Specific Features of Modules
+      1. Modules are a relatively new JavaScript feature, and so aren't fully supported by older browsers. 
+      2. Adding an additional script tag of type="nomodule" below your module tag can work around this limitation in HTML.
+         1. <!-- this module will load if the browser is modern --> 
+            1. <script type="module"></script>
+         2. <!-- this module will load if the browser is older -->
+            1. <script type="nomodule"></script>
 
+In Sprint 8, this project continues the refactoring from the previous project, introducing a number of new classes. Additionally, I will set up Webpack for the project.
+1. Destructuring Syntax = Destructuring is a convenient syntax that allows us to unpack arrays and objects, easily assigning the values they contain to variables. 
+   1. OBJECT DESTRUCTURING
+      1. When destucturing non-array objects, we refer to the names of individual properties of that object.
+      2. Referring to a property that isn't present in the object does not produce an error. Instead, it quietly sets that variable to undefined
+      3. Renaming the properties is accomplished with a familiar syntax.
+      4. Use destructuring inside a function's parameter list.
+   2. ARRAY DESTRUCTURING  
+      1. When destructuring arrays, it is the ORDER of the elements that matters, and the names they are assigned to can be arbitrarily chosen.
+   3. ARGUMENT DESTRUCTURING & DEFAULT VALUES
+      1. Destructuring is often used with function arguments/parameters. 
+         1. comparative syntax
+            1. without destructuring
+               1. use params
+            2. with destructuring
+               1. name the properties inside the parameter instaed of just naming the parameter
+      2. Default Values are assigned during array and obj destructuring
+         1. default values are only assumed for properties that were not named in the original object
+   
+2. Interfaces in OOP Part2
+   1. introduction - The main organizational principle at work is to divide your code into a collection of well-defined parts (ie, modules), each with its own responsibility.
+   2. project file structure
+      1. To effectively structure a project that uses OOP, organize your JS files into separate folders
+      2. Keeping all interactions between classes in index.js helps to increase the independence of those classes, and hence their reusability in other projects.
+   3. creating several classes in a project
+      1. This lesson explains how to refactor the card placement code found here in an object-oriented style, by the creation of a new Section class.
+         1. - The `Section` class is responsible for adding elements to the DOM: nothing more, nothing less.
+          - Its constructor accepts two parameters:  an array `data` of card elements and a CSS selector.
+          - It has two public methods:
+             - `setItem(element)` uses the `append` method to place `element` in the appropriate container on the DOM.
+             - `renderItems()` which iterates over the array of cards from the constructor, calling `setItem` on each item.
+             - Usage: instantiate in `index.js` and call `renderItems`.
+   4. Project Layers
+      1. - The first type of component is responsible for its own visual representations. An example of the is the `Card` class that we have seen, which has properties and methods that are used to generate the markup for the corresponding elements.
+      2. - The second type of component does not have its own visual representation and instead exists to handle some specific task. These are called **project layers**.
+    - Examples include:
+        - `FormValidator`, which interacts with the Validation API, and
+        - `Section`, which exists to place elements on the DOM.  
+   5. Realationships Between Classes
+      1. two types of classes
+         1. tight coupling - when classes have been implemented such that they cannot work independently of each other
+         2. loose coupling - when classes have been implemented to be independent of one another, facilitating code reuse. In general, loose coupling is to be preferred over tight coupling.   
+   6. Working c Event Listeners part1 - The first part of a code example detailing the process of building a SubmitForm class that creates new card instances on submission. 
+   7. Working c Event Listeners part2 - 
+      1. SubmitForm description:
+         1. Its constructor takes two parameters, the selector for the form template element and the submit event handler function, handleFormSubmit.
+         2. Methods
+            1. Private Methods 
+               1. _getTemplate clones and returns the form element from its template.
+               2. _setEventListeners sets a submit listener on the form element, with this._handleFormSubmit as its callback.
+               3. _getInputValues returns the input values from the form as an object that will be passed to this._handleFormSubmit when called by the listener.
+            2. Public Method
+               1. It has one public method, generateForm, which gets the cloned element with _getTemplate, calls _setEventListeners and returns the element.  
+         3. Note how generateForm and _getTemplate are analogous to the similarly name methods in our Card class. 
+3. Webpack QuickStart Guide
+   1. In the root directory of your project, run npm init and answer the questions you are prompted with.
+   2. Add these scripts to package.json 
+   3. Go to the platform page containing the final configuration files. Add each one, along with their contents, to the root of your project:
+    - `package.json`
+    - `webpack.config.js`
+    - `babel.config.js`
+    - `postcss.config.js`
+   4. Add .npmrc with the line save-exact=true to the root of your project.
+   5. Add .gitignore with the line node_modules to the root of your project.
+   6. Run npm install. The dependencies are already listed in package.json.
+4. Project Building c Webpack
+   1. NPM: Node Package Manager
+      1. Node.js is a JavaScript runtime that allows us to run JS outside of a browser. NPM is a package manager that allows us to easily manage Node.js packages.
+   2. Installing Webpack
+      1. install webpack, with npm i webpack@5.76.0 --save-dev --save-exact.
+      2. install webpack command line interface, with npm i webpack-cli@4.10.0 --save-dev --save-exact.
+   3. Bundle/Build Configuration
+   4. Webpack Setup
+   5. Installing a JS Transpiler: Babel
+   6. HTML Webpack Plugin
+   7. CSS Webpack Plugin
+   8. Image and Font Processing
+   9. CSS Minification and AMinification compresses file size while maintaining all functionality, while autoprefixing ensures cross-browser compatibility.utoprefixing with PostCSS
+   10. Final Configuration Files
+  
 Project Objectives:
 
 Sprint3:
@@ -139,11 +260,17 @@ Sprint6:
 4. Form Validation
 5. Debugging in Javascript
 
-Sprint7
+Sprint7:
 
 1. Intro to Object Oriented Programming OOP
 2. Interfaces in OOP
 3. Intro to Modular Javascript
+
+Sprint8:
+
+1. Destructuring Syntax
+2. Interfaces in OOP Part2
+3. Project Building c WebPack
 
 **Intro**
 
