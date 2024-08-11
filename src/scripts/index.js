@@ -2,6 +2,10 @@ import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import "../pages/index.css";
 
+import Section from "../scripts/Section.js";
+import PopupWithForm from "../scripts/PopupWithForm.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
+
 // const initialCards = [
 //   {
 //     name: "Yosemite Valley",
@@ -27,7 +31,8 @@ import "../pages/index.css";
 //     name: "Lago di Braies",
 //     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
 //   },
-// ]; (moved to utils>constant.js Aug11 with Michaela)
+// ];
+// (moved to utils>constant.js Aug11 with Michaela)
 
 /*------------------------------------ELEMENTS---------------------------------*/
 

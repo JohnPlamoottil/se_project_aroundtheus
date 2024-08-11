@@ -24,3 +24,22 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+export const options = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-button modal__button",
+  inactiveButtonClass: ".modal__save-button modal__button",
+  inputErrorClass: ".modal__input_type_error",
+  errorClass: ".modal__error",
+};
+
+export const profileEditButton = document.querySelector(
+  "#profile__edit-button"
+);
+export const profileEditForm = document.forms("#modal-form");
+export const profileAddCardButton = document.querySelector(
+  "#profile__add-button"
+);
+export const addCardForm = document.forms("#modal__form");
+export const preview__image = document.querySelector("#imageModal");
