@@ -5,7 +5,15 @@ import "../pages/index.css";
 import Section from "../scripts/Section.js";
 import PopupWithForm from "../scripts/PopupWithForm.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
-
+import Userinfo from "../scripts/Userinfo.js";
+import {
+  cardData,
+  options,
+  profileEditButton,
+  profileEditForm,
+  profileAddCardButton,
+  addCardForm,
+} from "../utils/constants.js";
 // const initialCards = [
 //   {
 //     name: "Yosemite Valley",
