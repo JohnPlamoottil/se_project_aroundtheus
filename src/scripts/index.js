@@ -9,6 +9,7 @@ import Userinfo from "../scripts/Userinfo.js";
 import {
   cardData,
   options,
+  initialCards,
   profileEditButton,
   profileEditForm,
   profileAddCardButton,
@@ -54,9 +55,9 @@ const cardPreviewModal = document.querySelector(
 );
 
 //----PROFILE EDIT BUTTON--->>
-const profileEditButton = document.querySelector(
-  "#javascript-profile-edit-button"
-);
+// const profileEditButton = document.querySelector(
+//   "#javascript-profile-edit-button"
+// ); moved to constant.js Aug11
 
 //----PROFILE CLOSE MODAL--->>
 const profileCloseModal = profileEditModal.querySelector(
@@ -80,9 +81,9 @@ const profileDescriptionInput = document.querySelector(
 );
 
 //-----PROFILE EDIT FORM ---------->>
-const profileEditForm = profileEditModal.querySelector(
-  "#javascript-modal-edit-form"
-); // handlers added at line 245
+// const profileEditForm = profileEditModal.querySelector(
+//   "#javascript-modal-edit-form"
+// ); // handlers added at line 245
 
 //----SELECT CARD TEMPLATE AND ELEMENT--->>
 const cardTemplate = document.querySelector("#javascript-card-template").content
@@ -92,7 +93,7 @@ const cardListElement = document.querySelector("#javascript-cards__list");
 
 const addCardModal = document.querySelector("#javascript-add-card-modal");
 //forms are easier way to find the form
-const addCardForm = addCardModal.querySelector(".modal__form");
+// const addCardForm = addCardModal.querySelector(".modal__form"); aug11 comment out
 
 const newCardTitleInput = addCardForm.querySelector(
   "#javascript-add-card-title-input"
@@ -102,9 +103,9 @@ const newCardUrlInput = addCardForm.querySelector(
 );
 
 //----PROFILE ADD BUTTON--->>
-const profileAddCardButton = document.querySelector(
-  "#javascript-profile-add-button"
-); //button for adding a card
+// const profileAddCardButton = document.querySelector(
+//   "#javascript-profile-add-button" comment out Aug11
+// ); //button for adding a card
 
 const addCardModalCloseButton = addCardModal.querySelector(
   "#javascript-add-card-close-modal"

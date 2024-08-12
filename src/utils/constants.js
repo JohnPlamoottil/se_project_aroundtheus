@@ -37,9 +37,15 @@ export const options = {
 export const profileEditButton = document.querySelector(
   "#profile__edit-button"
 );
-export const profileEditForm = document.forms("#modal-form");
+export const profileEditForm = document.querySelector(
+  "#javascript-modal-edit-form"
+);
 export const profileAddCardButton = document.querySelector(
   "#profile__add-button"
 );
-export const addCardForm = document.forms("#modal__form");
-export const preview__image = document.querySelector("#imageModal");
+export const addCardForm = document.querySelector(
+  "#javascript-modal-add-card-form"
+);
+export const preview__image = document.querySelector(
+  "#javascript-preview__image"
+);
