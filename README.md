@@ -145,6 +145,7 @@ In Sprint7, the purpose is to change javascript classes as Max pointed out in hi
             1. <script type="nomodule"></script>
 
 In Sprint 8, this project continues the refactoring from the previous project, introducing a number of new classes. Additionally, I will set up Webpack for the project.
+
 1. Destructuring Syntax = Destructuring is a convenient syntax that allows us to unpack arrays and objects, easily assigning the values they contain to variables. 
    1. OBJECT DESTRUCTURING
       1. When destucturing non-array objects, we refer to the names of individual properties of that object.

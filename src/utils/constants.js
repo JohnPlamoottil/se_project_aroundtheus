@@ -35,13 +35,13 @@ export const options = {
 };
 
 export const profileEditButton = document.querySelector(
-  "#profile__edit-button"
+  "#javascript-profile__edit-button"
 );
 export const profileEditForm = document.querySelector(
   "#javascript-modal-edit-form"
 );
 export const profileAddCardButton = document.querySelector(
-  "#profile__add-button"
+  "#javascript-profile-add-button"
 );
 export const addCardForm = document.querySelector(
   "#javascript-modal-add-card-form"
