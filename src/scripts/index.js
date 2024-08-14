@@ -15,33 +15,6 @@ import {
   profileAddCardButton,
   addCardForm,
 } from "../utils/constants.js";
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-//   },
-// ];
-// (moved to utils>constant.js Aug11 with Michaela)
 
 /*------------------------------------ELEMENTS---------------------------------*/
 
@@ -53,11 +26,6 @@ const profileEditModal = document.querySelector(
 const cardPreviewModal = document.querySelector(
   "#javascript-image-preview-modal"
 );
-
-//----PROFILE EDIT BUTTON--->>
-// const profileEditButton = document.querySelector(
-//   "#javascript-profile-edit-button"
-// ); moved to constant.js Aug11
 
 //----PROFILE CLOSE MODAL--->>
 const profileCloseModal = profileEditModal.querySelector(
@@ -80,11 +48,6 @@ const profileDescriptionInput = document.querySelector(
   "#javascript-profile-description-input"
 );
 
-//-----PROFILE EDIT FORM ---------->>
-// const profileEditForm = profileEditModal.querySelector(
-//   "#javascript-modal-edit-form"
-// ); // handlers added at line 245
-
 //----SELECT CARD TEMPLATE AND ELEMENT--->>
 const cardTemplate = document.querySelector("#javascript-card-template").content
   .firstElementChild;
@@ -93,7 +56,7 @@ const cardListElement = document.querySelector("#javascript-cards__list");
 
 const addCardModal = document.querySelector("#javascript-add-card-modal");
 //forms are easier way to find the form
-// const addCardForm = addCardModal.querySelector(".modal__form"); aug11 comment out
+// const addCardForm = addCardModal.querySelector(".modal__form");
 
 const newCardTitleInput = addCardForm.querySelector(
   "#javascript-add-card-title-input"
@@ -101,11 +64,6 @@ const newCardTitleInput = addCardForm.querySelector(
 const newCardUrlInput = addCardForm.querySelector(
   "#javascript-add-card-description-input"
 );
-
-//----PROFILE ADD BUTTON--->>
-// const profileAddCardButton = document.querySelector(
-//   "#javascript-profile-add-button" comment out Aug11
-// ); //button for adding a card
 
 const addCardModalCloseButton = addCardModal.querySelector(
   "#javascript-add-card-close-modal"
