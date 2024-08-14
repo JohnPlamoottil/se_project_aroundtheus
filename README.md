@@ -1,4 +1,4 @@
-# Project 8: Around the USA
+# Project 8-9: Around the USA
 
 ### Overview
 
@@ -19,6 +19,9 @@
 - Popup is basic popup class responsible for opening/closing popups (8)
 - PopupWithImage and PopupWithForm are subclasses of Popup implementing the image popups and forms. (8)
 - UserInfo gets and sets the users profile info (8)
+- Asynchronous Programming (9)
+- APIs  (9)
+- Object Prototypes (9)
 
 **Descriptions**
 
@@ -224,8 +227,118 @@ In Sprint 8, this project continues the refactoring from the previous project, i
    8. Image and Font Processing
    9. CSS Minification and AMinification compresses file size while maintaining all functionality, while autoprefixing ensures cross-browser compatibility.utoprefixing with PostCSS
    10. Final Configuration Files
-  
-Project Objectives:
+
+In Sprint 9, this sprint focuses on asynchronous code and its application in working with APIs and making HTML requests.
+
+This is the final pure JavaScript iteration of your Around the US project. The major focus is on connecting the project to a server using fetch requests. This will make your cards and user data persistent. Other new features include a counter for likes, a confirmation modal that appears prior to deleting a card, and another modal for changing the profile picture.
+A. ASYNCHRONUS PROGRAMMING
+1. Intro
+   1. So far, most of the code that you have dealt with has been synchronous, meaning that it's executed in a linear fashion, one command after the next. But code like this will perform poorly if some of the commands take too long to execute. For instance, if a request that has been sent to a server is slow to return to the page it originated from, the end-user will be annoyed by the lag. To mitigate this, we can allow the browser engine to continue with its other tasks while waiting for the poky response. This type of code is called asynchronous, and it is the focus of this chapter.
+2. Callbacks
+   1. Recall that callbacks are functions that are passed as arguments to other functions. You have used them already in several contexts, from event listeners to forEach loops. They can be used both synchronously and asyncronously. This lesson focuses on the former.
+3. Asynchronous Callbacks
+   1. This lesson provides an example of using callbacks asynchronously, showing how we can prevent a newly created image element from being rendered before it is ready by using a callback function and the element's onload property.
+4. Timers
+   1. Timers are built-in browser functions that allow us to delay the execution of parts of our code. 
+   2. Explanation of arguments:
+      1. - The first argument is a callback function containing the code to be executed.
+      2. - The second argument is the amount of time in milliseconds the function should wait before executing the callback.
+      3. - Additional arguments to `setTimeout` will be fed to the callback function.
+5. Event Loops 
+   1. The event loop is the mechanism that is "responsible for executing the code, collecting and processing events, and executing queued sub-tasks." — [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)  Basically it is a `while` loop that waits for asynchronous events and pushes them onto the **call stack** to be executed.
+   2. - The order in which different parts of code get executed can be a bit hard to parse, even without throwing asynchronous code into the mix. Here is a line by line breakdown of the example given in this lesson.
+      1. [Line by Line Call Stack Example](https://www.notion.so/a5c412f951a54f8ca0cbf877ac8d8e3e?pvs=21)
+   3. Line by Line Call Stack Examples - NOTESHEET
+   
+6. Promises
+   1. We've mentioned the use of callback functions for asynchronous functions. This works well enough for simple processes, but it can grow unmanageable very quickly when you have multiple nested callback functions. **Promises** can achieve the same effect much more conveniently.
+   2. Promises are objects that represent the final fulfillment or failure of an asynchronous operation. As such, they are often used to send requests to servers, something you will soon grow familiar with.
+   3. - `Promise` object Methods
+      1. These are objects of the `Promise` object, not of its instances.
+         1. - `Promise.resolve(value)` returns a promise object that is resolved with the given value.
+         2. - `Promise.reject(value)` returns a promise object that is rejected with the given value.
+         3. - `Promise.all(arrayOfPromises)` attempts to resolve all promises in the array and returns the response values in an array.
+   
+B. INTRO TO WORKING WITH APIs
+   In this chapter, you learn how to send server requests and receive responses. Server interaction opens an exciting new chapter in our web development adventure. There are many APIs on the internet from which we can receive data, and in this chapter, you'll learn how to interact with them.
+1. HTTP: Hypertext Transfer Protocol
+   1. The internet is a network of computers that exchange information. In order for this to function properly, there must be a certain standard that specifies the form that the data passed from computer to computer will take. HTTP was the first such standard. It defines the rules for sending requests and responses.
+2. Making Requests with JavaScript
+   1. The asynchronous fetch method is one of the ways to send requests with JavaScript code. 
+3. JSON Format
+   1. JSON (JavaScript Object Notation) is a format for transmitting data that is usable by any programming language. The syntax is similar to a JavaScript object (hence the name).
+4. HTTP Request
+   1. HTTP request methods define what has to be done with the requested resource. Here are some of the more common ones.
+5. Server Responses
+   1. We've already discussed the response object's json() method, but it has many other properties and methods to note.
+      1. Status Codes inform us the success or failure of a request.
+         1. subdivided according to their first digit.
+            1. - 200's — indicate a successful request.
+            2. - 300's — indicate that the request has been redirected.
+            3. - 400's — indicate that there's something wrong with the request. The server can't find the requested resource, or the client doesn't have access rights to the resource.
+            4. - 500's —  indicate that the server has encountered an internal error.
+         2. - Common Status Codes include
+            1. - 200 OK
+            2. - 201 Created
+            3. - 401 Unauthorized
+            4. - 403 Forbidden
+            5. - 404 Not Found
+            6. - 500 Internal Server Error
+         3. The codes and their messages are available as the response object's res.status and res.statusText properties. There is also a boolean property res.ok that returns true if the status code is in the 200's.
+         4. Response Headers
+            1. - These are accessible as `res.headers`, but it doesn't behave like a normal JavaScript object, because the headers are case-insensitive, whereas objects are not.
+            2. - So there are special methods for working with it.
+            3. Note that response headers are read-only.
+         5. Response Body
+            1. - Responses almost always have a body. For instance, when we request a webpage the response is the page's HTML.
+            2. - Here are three methods that are usable to convert the data in a response body.
+               1. - `res.json()` — converts response data to JSON. This is what you will be using most often.
+               2. - `res.text()` — converts the response body into text.
+               3. - `res.blob()` — returns the response body as binary data. It's often used to exchange various files: videos, images, PDF docs. This method starts a stream of decoded data, that's received gradually.
+            3. - All of these methods work asynchonously, so you can't use the values they return in the same .then block.
+6. DevTools: Network Panel
+   1. This lesson introduces a new tool in your debugging arsenal: the network panel. Here, you can view all the HTTP requests made by the page you currently have open. This includes requests for HTML, CSS, JS, images, as well as fetch requests made using JavaScript.
+   2. You can filter the requests using several different parameters.  We will mostly use XHR (XMLHttpRequest), which covers fetch requests.
+   3. The platform goes in to more detail on its usage.
+7. Bonus Lesson: Default Form Submission
+   1. In modern programming, JavaScript is always used for form processing, but in older code default form submission via HTML is still in use. This lesson explains how it works, and why JavaScript is greatly preferable to it.
+   
+C. OBJECT PROTOTYPES
+1. The __proto__ Property
+   1. A prototype is an object from which other objects inherit properties and methods. If the initial object doesn't store specific properties or methods, the engine will look for them in the prototype object.
+2. ## [The `Object.create` Method]
+   1. The `Object.create` method creates an empty object with the specified prototype.
+3. The new Operator
+   1. We can encapsulate the logic of the previous example into a function like this.
+      1. function createPopupWithForm(selector, submitHandler) {
+
+	      // 1. create a new empty object with a prototype linked to it.
+               const popupWithForm = Object.create(popup);
+
+         // 2. add all necessary properties to this object.
+               popupWithForm.selector = selector;
+               popupWithForm.submit = submitHandler;
+   
+         // 3. return the object
+               return popupWithForm;
+         }
+      2. Steps 1 and 3 can be automated by calling a function with the `new` operator. When called with `new`, additional steps are taken by the browser, before and after executing the functions body:
+         1. Before executing the function, the engine creates a new empty object and assigns it to the value of `this` inside the function being called.
+         2. The engine then executes the function code.
+         3. After executing the function, `this` is returned.
+      3. It is customary to name functions that are intended to be used with the `new` operator with an initial capital letter, to make this intention clear.
+4. The prototype Property
+   1. Calling a function with the `new` operator automatically creates an empty object, adds the `this` keyword to it, then returns it after the function's code is executed.  
+   2. The returned object has a property called `prototype`. We can add methods and properties to the `prototype` property, which will be then be stored in the prototype — that is to say, in the `__proto__` property of the created object.
+5. The Secret Behind JavaScript Classes
+   1. This brings us to the big reveal — JavaScript classes basically do the same thing that we've described in the preceding lessons. For comparison, here we rework the previous example using classes instead.
+6. Built-in Constructors and Their Prototypes
+   1. Built-in obects in JavaScript have their own constructor functions. 
+   2. When we declare a new object instance, the appropriate object is stored in the prototype of the instance. These prototypes may contain a number of useful methods.
+7. Inheritance and the ProtoType Chain
+   1. Inheritance works by adding linking a parent class to the __proto__ property of the child, forming a chain that ultimately connects the child to the prototype of its parent as well.
+
+8. Project Objectives:
 
 Sprint3:
 
@@ -273,11 +386,20 @@ Sprint8:
 2. Interfaces in OOP Part2
 3. Project Building c WebPack
 
+Sprint9:
+
+1. Asynchronous Programming
+2. Intro to Working with APIs
+3. Object Prototypes
+
+
 **Intro**
 
 This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
 
 **Figma**
+
+-[Link to the project9 on Figma] (https://www.figma.com/design/E5x6ib3osaUUNwLRRAsTDX/Sprint-9-%E2%80%94-Applied-JavaScript?node-id=1530-2&t=PmjVPNRUjTbbT1SW-0)
 
 -[Link to the project6 on Figma] (https://www.figma.com/file/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?fuid=1292520043125919162)
 
