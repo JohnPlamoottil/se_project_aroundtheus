@@ -231,6 +231,7 @@ In Sprint 8, this project continues the refactoring from the previous project, i
 In Sprint 9, this sprint focuses on asynchronous code and its application in working with APIs and making HTML requests.
 
 This is the final pure JavaScript iteration of your Around the US project. The major focus is on connecting the project to a server using fetch requests. This will make your cards and user data persistent. Other new features include a counter for likes, a confirmation modal that appears prior to deleting a card, and another modal for changing the profile picture.
+
 A. ASYNCHRONUS PROGRAMMING
 1. Intro
    1. So far, most of the code that you have dealt with has been synchronous, meaning that it's executed in a linear fashion, one command after the next. But code like this will perform poorly if some of the commands take too long to execute. For instance, if a request that has been sent to a server is slow to return to the page it originated from, the end-user will be annoyed by the lag. To mitigate this, we can allow the browser engine to continue with its other tasks while waiting for the poky response. This type of code is called asynchronous, and it is the focus of this chapter.
@@ -306,9 +307,9 @@ B. INTRO TO WORKING WITH APIs
 C. OBJECT PROTOTYPES
 1. The __proto__ Property
    1. A prototype is an object from which other objects inherit properties and methods. If the initial object doesn't store specific properties or methods, the engine will look for them in the prototype object.
-2. ## [The `Object.create` Method]
+2. The `Object.create` Method
    1. The `Object.create` method creates an empty object with the specified prototype.
-3. The new Operator
+3. The **new** Operator
    1. We can encapsulate the logic of the previous example into a function like this.
       1. function createPopupWithForm(selector, submitHandler) {
 
@@ -327,7 +328,7 @@ C. OBJECT PROTOTYPES
          2. The engine then executes the function code.
          3. After executing the function, `this` is returned.
       3. It is customary to name functions that are intended to be used with the `new` operator with an initial capital letter, to make this intention clear.
-4. The prototype Property
+4. The **prototype** Property
    1. Calling a function with the `new` operator automatically creates an empty object, adds the `this` keyword to it, then returns it after the function's code is executed.  
    2. The returned object has a property called `prototype`. We can add methods and properties to the `prototype` property, which will be then be stored in the prototype — that is to say, in the `__proto__` property of the created object.
 5. The Secret Behind JavaScript Classes
@@ -338,7 +339,7 @@ C. OBJECT PROTOTYPES
 7. Inheritance and the ProtoType Chain
    1. Inheritance works by adding linking a parent class to the __proto__ property of the child, forming a chain that ultimately connects the child to the prototype of its parent as well.
 
-8. Project Objectives:
+Project Objectives:
 
 Sprint3:
 
