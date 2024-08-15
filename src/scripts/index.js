@@ -18,6 +18,26 @@ import {
 
 /*------------------------------------ELEMENTS---------------------------------*/
 
+const cardList = new Section({
+  items: initialCards,
+  renderer: (cardData) => {
+    const cardElement = createCard(cardData);
+    cardList.addItem(cardElement);
+  },
+  containerSelector: "#javascript-cards__list",
+});
+cardList.renderItems();
+//  initialCards.forEach((cardData) => {
+//  const cardElement = createCard(cardData);
+//  section.addItem(cardElement);
+// });
+
+// function renderCard(cardData, container) {
+//   // const cardElement = getCardElement(cardData);
+//   const cardElement = createCard(cardData);
+//   container.prepend(cardElement);
+// } // end of function
+
 //----PROFILE EDIT MODAL---->>
 const profileEditModal = document.querySelector(
   "#javascript-profile-edit-modal"
@@ -158,11 +178,6 @@ function createCard(item) {
   const cardElement = new Card(item, "#javascript-card-template", expand);
   return cardElement.getView();
 }
-function renderCard(cardData, container) {
-  // const cardElement = getCardElement(cardData);
-  const cardElement = createCard(cardData);
-  container.prepend(cardElement);
-} // end of function
 
 function setLikeHandler(element) {
   // the like button
@@ -211,7 +226,7 @@ addCardForm.addEventListener("submit", (event) => {
   const link = newCardUrlInput.value; //new card URL value
 
   // calling Render Card Function
-  renderCard({ name, link }, cardListElement); // TODO -> issue inside
+  // renderCard({ name, link }, cardListElement); // TODO -> issue inside
   event.target.reset();
   closePopup(addCardModal);
   addCardFormValidator.disableSubmitButton();
@@ -228,6 +243,3 @@ imageClosePreviewModal.addEventListener("click", () =>
 );
 
 // rendering Card c ForEach() instead of ForLoop()
-initialCards.forEach((cardData) => {
-  renderCard(cardData, cardListElement);
-});
