@@ -38,14 +38,28 @@ cardList.renderItems();
 //   container.prepend(cardElement);
 // } // end of function
 
+const addCardPopup = new PopupWithForm({
+  popupSelector: "#javascript-add-card-modal",
+  handleFormSubmit: () => {},
+});
+
+addCardPopup.setEventListeners();
+
+const addImagePopup = new PopupWithImage({
+  popupSelector: "#javascript-preview__image",
+});
+
+console.log(addImagePopup);
+
+const userInfoPopup = new Userinfo({});
 //----PROFILE EDIT MODAL---->>
 const profileEditModal = document.querySelector(
   "#javascript-profile-edit-modal"
 );
 
-const cardPreviewModal = document.querySelector(
-  "#javascript-image-preview-modal"
-);
+// const cardPreviewModal = document.querySelector(
+//   "#javascript-image-preview-modal"
+// );
 
 //----PROFILE CLOSE MODAL--->>
 const profileCloseModal = profileEditModal.querySelector(
@@ -166,11 +180,11 @@ function handleModalCloseEscPressDown(evt) {
 
 function expand({ name, link }) {
   document.getElementById("javascript-preview__image").src = link;
-  imageCaption.textContent = name;
+  //imageCaption.textContent = name;
 
   // set text content done 8.19pm july6 c kevin
   // on the row above I found the image, you need to find name and fill it with name
-  openPopup(cardPreviewModal);
+  // openPopup(cardPreviewModal);
 }
 
 // helper function
@@ -216,7 +230,7 @@ profileEditForm.addEventListener("submit", (event) => {
 });
 
 // the plus + button for profile Add Card OPENS upon CLICKING
-profileAddCardButton.addEventListener("click", () => openPopup(addCardModal));
+profileAddCardButton.addEventListener("click", () => addCardPopup.open());
 
 // the plus + button for profile Add Card modal CLOSES when clicked
 
@@ -232,10 +246,9 @@ addCardForm.addEventListener("submit", (event) => {
   addCardFormValidator.disableSubmitButton();
 });
 
-addCardModalCloseButton.addEventListener("click", () =>
-  closePopup(addCardModal)
-);
-
+addCardModalCloseButton.addEventListener("click", () => addCardPopup.close());
+imagePreviewModal.addEventListener("click", () => addImagePopup.open());
+// addImagePopup.setEventListeners();
 /*----------------------CARD PREVIEW MODAL - CLOSING-------------------*/
 
 imageClosePreviewModal.addEventListener("click", () =>
