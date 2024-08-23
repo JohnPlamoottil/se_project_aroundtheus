@@ -51,7 +51,8 @@ const addImagePopup = new PopupWithImage({
 
 console.log(addImagePopup);
 
-const userInfoPopup = new Userinfo({});
+//profileName and profileDescription
+const userInfo = new Userinfo({});
 //----PROFILE EDIT MODAL---->>
 const profileEditModal = document.querySelector(
   "#javascript-profile-edit-modal"

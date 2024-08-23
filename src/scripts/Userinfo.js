@@ -9,6 +9,12 @@ export default class Userinfo {
   }
 
   getUserInfo() {
+    const userInfo = {};
+    userInfo.name = this._nameInput.querySelector(
+      ".profile-name-input"
+    ).textContent;
+    nameSelector;
+
     return {
       name: this._nameElement.textContent,
       description: this._descriptionElement.textContent,
