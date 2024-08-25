@@ -1,14 +1,11 @@
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
-    this._popupCloseBtn = this._popupElement.querySelector(
-      popupSelector == "#javascript-add-card-modal"
-        ? "#javascript-add-card-close-modal"
-        : popupSelector == "#javascript-profile-edit-modal"
-        ? "#javascript-profile-close-modal"
-        : "#javascript-image-preview-close-modal"
-    );
+    this._popupCloseBtn = this._popupElement.querySelector(".modal__close");
+    this.__handleClickOutside = this.__handleClickOutside.bind(this);
+
     console.log(this._popupCloseBtn);
+    this.__handleClickOutside = this.__handleClickOutside.bind(this);
   }
 
   open() {
