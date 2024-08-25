@@ -8,6 +8,7 @@ export default class Popup {
         ? "#javascript-profile-close-modal"
         : "#javascript-image-preview-close-modal"
     );
+    console.log(this._popupCloseBtn);
   }
 
   open() {

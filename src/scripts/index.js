@@ -46,10 +46,8 @@ const addCardPopup = new PopupWithForm({
 addCardPopup.setEventListeners();
 
 const addImagePopup = new PopupWithImage({
-  popupSelector: "#javascript-preview__image",
+  popupSelector: "#javascript-image-preview-modal",
 });
-
-console.log(addImagePopup);
 
 //profileName and profileDescription
 const userInfo = new Userinfo({});
@@ -180,7 +178,8 @@ function handleModalCloseEscPressDown(evt) {
 }
 
 function expand({ name, link }) {
-  document.getElementById("javascript-preview__image").src = link;
+  addImagePopup.open({ name, link });
+
   //imageCaption.textContent = name;
 
   // set text content done 8.19pm july6 c kevin
@@ -248,7 +247,7 @@ addCardForm.addEventListener("submit", (event) => {
 });
 
 addCardModalCloseButton.addEventListener("click", () => addCardPopup.close());
-imagePreviewModal.addEventListener("click", () => addImagePopup.open());
+// imagePreviewModal.addEventListener("click", () => addImagePopup.open());
 // addImagePopup.setEventListeners();
 /*----------------------CARD PREVIEW MODAL - CLOSING-------------------*/
 
