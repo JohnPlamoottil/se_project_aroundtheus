@@ -40,6 +40,18 @@ cardList.renderItems();
 
 const addCardPopup = new PopupWithForm({
   popupSelector: "#javascript-add-card-modal",
+  handleFormSubmit: ({ title: name, url: link }) => {
+    cardList.addItem(createCard({ name, link }));
+    // cardList.addItem(createCard(cardData));
+    //first have to reset the form
+    //.reset(); done
+    //second have to disable the submit
+    //.disableSubmitButton done
+  },
+});
+
+const profileEditPopup = new PopupWithForm({
+  popupSelector: "#javascript-profile-edit-modal",
   handleFormSubmit: () => {},
 });
 
@@ -137,12 +149,12 @@ addCardFormValidator.enableValidation();
 /*------------------------------------FUNCTIONS---------------------------------*/
 
 //to open the modal when Edit Button is Clicked
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
+// function openPopup(modal) {
+//   modal.classList.add("modal_opened");
 
-  document.addEventListener("keydown", handleModalCloseEscPressDown);
-  modal.addEventListener("mousedown", handleModalCloseMouseClick);
-} // end of function
+//   document.addEventListener("keydown", handleModalCloseEscPressDown);
+//   modal.addEventListener("mousedown", handleModalCloseMouseClick);
+// } // end of function
 
 // to close the modal
 function closePopup(modal) {
@@ -216,10 +228,10 @@ function setDeleteHandler(element) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent; // prefilled form c profile title
   profileDescriptionInput.value = profileDescription.textContent; // prefilled form c the profile description
-  openPopup(profileEditModal);
+  profileEditPopup.open();
 });
 
-profileCloseModal.addEventListener("click", () => closePopup(profileEditModal));
+// profileCloseModal.addEventListener("click", () => closePopup(profileEditModal));
 
 // PROFILE EDIT MODAL BOX IS SAVED WHEN BUTTON IS CLICKED line66
 profileEditForm.addEventListener("submit", (event) => {
@@ -234,17 +246,17 @@ profileAddCardButton.addEventListener("click", () => addCardPopup.open());
 
 // the plus + button for profile Add Card modal CLOSES when clicked
 
-addCardForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const name = newCardTitleInput.value; //new card TITLE value
-  const link = newCardUrlInput.value; //new card URL value
+// addCardForm.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const name = newCardTitleInput.value; //new card TITLE value
+//   const link = newCardUrlInput.value; //new card URL value
 
-  // calling Render Card Function
-  // renderCard({ name, link }, cardListElement); // TODO -> issue inside
-  event.target.reset();
-  closePopup(addCardModal);
-  addCardFormValidator.disableSubmitButton();
-});
+//   // calling Render Card Function
+//   // renderCard({ name, link }, cardListElement); // TODO -> issue inside
+//   // event.target.reset();
+//   // closePopup(addCardModal);
+//   // addCardFormValidator.disableSubmitButton();
+// });
 
 addCardModalCloseButton.addEventListener("click", () => addCardPopup.close());
 // imagePreviewModal.addEventListener("click", () => addImagePopup.open());
