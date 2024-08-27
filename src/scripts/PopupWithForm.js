@@ -22,16 +22,17 @@ export default class PopupWithForm extends Popup {
 
       this._handleFormSubmit(this._getInputValues(e));
       this.close();
+      this._popupForm.reset();
     });
 
     super.setEventListeners();
   }
 
-  close() {
-    this._popupForm.reset();
-    super.close();
-    console.log(777);
-  }
+  // close() {
+  //   this._popupForm.reset();
+  //   super.close();
+  //   console.log(777);
+  // }
 }
 
 // index.js

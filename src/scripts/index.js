@@ -7,7 +7,6 @@ import PopupWithForm from "../scripts/PopupWithForm.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
 import Userinfo from "../scripts/Userinfo.js";
 import {
-  cardData,
   options,
   initialCards,
   profileEditButton,
@@ -47,6 +46,7 @@ const addCardPopup = new PopupWithForm({
     //.reset(); done
     //second have to disable the submit
     //.disableSubmitButton done
+    addCardFormValidator.disableSubmitButton();
   },
 });
 
@@ -131,17 +131,17 @@ const imageCaption = document.querySelector(
 /* -------------------------------------------------------------------------- */
 /*                                   objects                                  */
 /* -------------------------------------------------------------------------- */
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_active",
-};
+// const config = {   (moved to constants.js)
+//   formSelector: ".modal__form",
+//   inputSelector: ".modal__input",
+//   submitButtonSelector: ".modal__button",
+//   inactiveButtonClass: "modal__button_disabled",
+//   inputErrorClass: "modal__input_type_error",
+//   errorClass: "modal__error_active",
+// };
 
-const editProfileFormValidator = new FormValidator(config, profileEditForm);
-const addCardFormValidator = new FormValidator(config, addCardForm);
+const editProfileFormValidator = new FormValidator(options, profileEditForm);
+const addCardFormValidator = new FormValidator(options, addCardForm);
 
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
@@ -157,11 +157,11 @@ addCardFormValidator.enableValidation();
 // } // end of function
 
 // to close the modal
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleModalCloseEscPressDown);
-  modal.removeEventListener("mousedown", handleModalCloseMouseClick);
-} // end of function
+// function closePopup(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keydown", handleModalCloseEscPressDown);
+//   modal.removeEventListener("mousedown", handleModalCloseMouseClick);
+// } // end of function
 
 // ---CLOSE MODALS PRESSING OUTSIDE OF MODAL--->>
 
@@ -169,11 +169,11 @@ function closePopup(modal) {
 paramenter - this takes the event as in a mouse click 
 description - closes the modal or popup when clicked outside of box
 */
-function handleModalCloseMouseClick(evt) {
-  if (evt.target == evt.currentTarget) {
-    closePopup(evt.currentTarget);
-  } // end of if statement
-} // end of this function
+// function handleModalCloseMouseClick(evt) {
+//   if (evt.target == evt.currentTarget) {
+//     closePopup(evt.currentTarget);
+//   } // end of if statement
+// } // end of this function
 
 //---ADDING INITIAL CARDS--->>
 
@@ -182,12 +182,12 @@ function handleModalCloseMouseClick(evt) {
 note - takes the event of a key pressed
 description - the modal_opened class and checks if the ESC key is pressed then and only then will popup close 
 */
-function handleModalCloseEscPressDown(evt) {
-  if (evt.key === "Escape") {
-    const modalOpened = document.querySelector(".modal_opened");
-    closePopup(modalOpened);
-  }
-}
+// function handleModalCloseEscPressDown(evt) {
+//   if (evt.key === "Escape") {
+//     const modalOpened = document.querySelector(".modal_opened");
+//     closePopup(modalOpened);
+//   }
+// }
 
 function expand({ name, link }) {
   addImagePopup.open({ name, link });
@@ -234,14 +234,14 @@ profileEditButton.addEventListener("click", () => {
 // profileCloseModal.addEventListener("click", () => closePopup(profileEditModal));
 
 // PROFILE EDIT MODAL BOX IS SAVED WHEN BUTTON IS CLICKED line66
-profileEditForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopup(profileEditModal);
-});
+// profileEditForm.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   profileTitle.textContent = profileTitleInput.value;
+//   profileDescription.textContent = profileDescriptionInput.value;
+//   closePopup(profileEditModal);
+// });
 
-// the plus + button for profile Add Card OPENS upon CLICKING
+// the plus + button for profile Add Card OPENS upon CLICKING .. opening up the add card modal
 profileAddCardButton.addEventListener("click", () => addCardPopup.open());
 
 // the plus + button for profile Add Card modal CLOSES when clicked
@@ -258,13 +258,13 @@ profileAddCardButton.addEventListener("click", () => addCardPopup.open());
 //   // addCardFormValidator.disableSubmitButton();
 // });
 
-addCardModalCloseButton.addEventListener("click", () => addCardPopup.close());
+// addCardModalCloseButton.addEventListener("click", () => addCardPopup.close()); handling the close modal popupclass
 // imagePreviewModal.addEventListener("click", () => addImagePopup.open());
 // addImagePopup.setEventListeners();
 /*----------------------CARD PREVIEW MODAL - CLOSING-------------------*/
 
-imageClosePreviewModal.addEventListener("click", () =>
-  closePopup(imagePreviewModal)
-);
+// imageClosePreviewModal.addEventListener("click", () => popup.js class
+//   closePopup(imagePreviewModal)
+// );
 
 // rendering Card c ForEach() instead of ForLoop()
