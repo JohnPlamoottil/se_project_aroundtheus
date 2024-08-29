@@ -24,10 +24,14 @@ export default class Popup {
   }
 
   __handleClickOutside(event) {
-    if (event.target.classList.contains("modal_opened")) {
+    if (
+      event.target.classList.contains("modal_opened") ||
+      event.target.classList.contains("modal__close")
+    ) {
       this.close();
     }
   }
+  //if the element you click on contains the modal opened class or || the modal close class then close the modal
 
   _handleEscClose = (evt) => {
     console.log(evt.key);
