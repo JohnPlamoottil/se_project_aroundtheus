@@ -101,7 +101,7 @@
 
   .profile__description {
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
   }
 
   .profile__edit-button {

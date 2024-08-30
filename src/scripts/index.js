@@ -14,6 +14,7 @@ import {
   profileAddCardButton,
   addCardForm,
 } from "../utils/constants.js";
+import { data } from "autoprefixer";
 
 /*------------------------------------ELEMENTS---------------------------------*/
 
@@ -50,19 +51,27 @@ const addCardPopup = new PopupWithForm({
   },
 });
 
+//profileName and profileDescription
+const userInfo = new Userinfo("#profile-title", "#profile-description");
+
 const profileEditPopup = new PopupWithForm({
   popupSelector: "#javascript-profile-edit-modal",
-  handleFormSubmit: () => {},
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(data);
+  },
 });
+//And after you do that you'd also need to create the function for editing the information, are passing an empty function ^^^
 
 addCardPopup.setEventListeners();
+
+profileEditPopup.setEventListeners();
 
 const addImagePopup = new PopupWithImage({
   popupSelector: "#javascript-image-preview-modal",
 });
 
-//profileName and profileDescription
-const userInfo = new Userinfo({});
+addImagePopup.setEventListeners();
+
 //----PROFILE EDIT MODAL---->>
 const profileEditModal = document.querySelector(
   "#javascript-profile-edit-modal"
@@ -79,6 +88,7 @@ const profileCloseModal = profileEditModal.querySelector(
 
 //----PROFILE TITLE---->>
 const profileTitle = document.querySelector(".profile__title");
+// const profileTitle = document.querySelector("#profile-title");
 
 //----PROFILE DESCRIPTION------>>
 const profileDescription = document.querySelector(".profile__description");
@@ -226,8 +236,11 @@ function setDeleteHandler(element) {
 
 // CLICKING THE PROFILE EDIT BUTTON -  OPENs THE MODAL
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent; // prefilled form c profile title
-  profileDescriptionInput.value = profileDescription.textContent; // prefilled form c the profile description
+  const { name, description } = userInfo.getUserInfo();
+  profileEditPopup.setInputValues({ title: name, Description: description });
+
+  // profileEditPopup.profileTitleInput.value = profileTitle.textContent.trim(); // prefilled form c profile title
+  // profileDescriptionInput.value = profileDescription.textContent.trim(); // prefilled form c the profile description
   profileEditPopup.open();
 });
 
