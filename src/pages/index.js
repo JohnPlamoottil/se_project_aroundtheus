@@ -1,11 +1,11 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 import "../pages/index.css";
 
-import Section from "../scripts/Section.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import Userinfo from "../scripts/Userinfo.js";
+import Section from "../components/Section.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Userinfo from "../components/Userinfo.js";
 import {
   options,
   initialCards,
@@ -87,7 +87,7 @@ const profileCloseModal = profileEditModal.querySelector(
 );
 
 //----PROFILE TITLE---->>
-const profileTitle = document.querySelector(".profile__title");
+// const profileTitle = document.querySelector(".profile__title");
 // const profileTitle = document.querySelector("#profile-title");
 
 //----PROFILE DESCRIPTION------>>
