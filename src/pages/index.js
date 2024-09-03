@@ -47,7 +47,7 @@ const addCardPopup = new PopupWithForm({
     //.reset(); done
     //second have to disable the submit
     //.disableSubmitButton done
-    addCardFormValidator.disableSubmitButton();
+    formValidators["cardForm"].disableSubmitButton();
   },
 });
 
@@ -150,11 +150,29 @@ const imageCaption = document.querySelector(
 //   errorClass: "modal__error_active",
 // };
 
-const editProfileFormValidator = new FormValidator(options, profileEditForm);
-const addCardFormValidator = new FormValidator(options, addCardForm);
+// define an object for storing validators
+const formValidators = {};
 
-editProfileFormValidator.enableValidation();
-addCardFormValidator.enableValidation();
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    // Here you get the name of the form (if you don’t have it then you need to add it into each form in `index.html` first)
+    const formName = formElement.getAttribute("name");
+
+    // Here you store the validator using the `name` of the form
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(options);
+
+// const editProfileFormValidator = new FormValidator(options, profileEditForm);
+// const addCardFormValidator = new FormValidator(options, addCardForm);
+
+// editProfileFormValidator.enableValidation();
+// addCardFormValidator.enableValidation();
 
 /*------------------------------------FUNCTIONS---------------------------------*/
 
