@@ -38,17 +38,4 @@ export default class PopupWithForm extends Popup {
 
     super.setEventListeners();
   }
-
-  // close() {
-  //   this._popupForm.reset();
-  //   super.close();
-  //   console.log(777);
-  // }
 }
-
-// index.js
-
-// const newCardPopup = new PopupWithForm("#javascript-add-card-modal", () => {});
-// newCardPopup.open();
-
-// newCardPopup.close();

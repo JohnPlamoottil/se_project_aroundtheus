@@ -20,27 +20,4 @@ export default class PopupWithImage extends Popup {
 
     super.open();
   }
-
-  // close() {
-  //   this._popupElement.classList.remove("modal_opened");
-  //   document.removeEventListener("keydown", this._handleEscClose);
-  // }
-
-  // _handleEscClose = (evt) => {
-  //   console.log(evt.key);
-  //   if (evt.key === "Escape") {
-  //     console.log("is this firing?");
-  //     this.close();
-  //   }
-  // };
-
-  // setEventListeners() {
-  //   this._popupCloseBtn.addEventListener("click", () => this.close());
-  //   // solve for closing popup when clicking outside shaded area
-  //   this._popupElement.addEventListener("click", (event) => {
-  //     if (event.target === event.currentTarget) {
-  //       this.close();
-  //     }
-  //   });
-  // }
 }
