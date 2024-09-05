@@ -147,23 +147,6 @@ function createCard(item) {
   return cardElement.getView();
 }
 
-function setLikeHandler(element) {
-  // the like button
-  const cardLikeButton = element.querySelector("#javascript-card__like-button");
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_active");
-  });
-}
-
-function setDeleteHandler(element) {
-  const cardDeleteButton = element.querySelector(
-    "#javascript-card__trash-image"
-  );
-  cardDeleteButton.addEventListener("click", () => {
-    element.remove();
-  });
-} // end trash or delete function
-
 /* -----------------EVENT HANDLERS ------------------------------>*/
 
 // CLICKING THE PROFILE EDIT BUTTON -  OPENs THE MODAL
