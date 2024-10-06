@@ -15,18 +15,36 @@ import {
   addCardForm,
 } from "../utils/constants.js";
 import { data } from "autoprefixer";
+import Api from "../components/Api.js";
 
 /*------------------------------------ELEMENTS---------------------------------*/
 
-const cardList = new Section({
-  items: initialCards,
-  renderer: (cardData) => {
-    const cardElement = createCard(cardData);
-    cardList.addItem(cardElement);
+const api = new Api({
+  url: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "5ac4fe45-2aaf-492d-9eae-17a1ffa794c2",
+    "Content-Type": "application/json",
   },
-  containerSelector: "#javascript-cards__list",
 });
-cardList.renderItems();
+
+let cardList;
+
+api
+  .getCards()
+  .then((res) => {
+    // add the cards to the page
+    cardList = new Section({
+      items: res,
+      renderer: (cardData) => {
+        const cardElement = createCard(cardData);
+        cardList.addItem(cardElement);
+      },
+      containerSelector: "#javascript-cards__list",
+    });
+    cardList.renderItems();
+    console.log(res);
+  })
+  .catch(console.error);
 
 const addCardPopup = new PopupWithForm({
   popupSelector: "#javascript-add-card-modal",
