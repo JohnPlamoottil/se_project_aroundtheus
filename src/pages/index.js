@@ -33,7 +33,7 @@ api
   .getCards()
   .then((res) => {
     // add the cards to the page
-    cardList = new Section({
+    const cardList = new Section({
       items: res,
       renderer: (cardData) => {
         const cardElement = createCard(cardData);
