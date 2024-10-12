@@ -16,6 +16,8 @@ import {
 } from "../utils/constants.js";
 import { data } from "autoprefixer";
 import Api from "../components/Api.js";
+import ProfileImageEditPopup from "../components/PopupEditProfileImage.js";
+import PopupChangeProfileImage from "../components/PopupChangeProfileImage.js";
 
 /*------------------------------------ELEMENTS---------------------------------*/
 
@@ -29,50 +31,219 @@ const api = new Api({
 
 let cardList;
 
-api
-  .getCards()
-  .then((res) => {
-    // add the cards to the page
-    const cardList = new Section({
-      items: res,
-      renderer: (cardData) => {
-        const cardElement = createCard(cardData);
-        cardList.addItem(cardElement);
-      },
-      containerSelector: "#javascript-cards__list",
+const getCardFunction = () => {
+  api
+    .getCards()
+    .then((res) => {
+      cardList = new Section({
+        items: res,
+        renderer: (cardData) => {
+          const cardElement = createCard(cardData);
+          cardList.addItem(cardElement);
+        },
+        containerSelector: "#javascript-cards__list",
+      });
+      cardList.renderItems();
+    })
+    .catch(console.error);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  getCardFunction();
+});
+
+// ------------- USER PROFILE ----------
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userInfos = document.querySelector(".content");
+  getFunction();
+});
+const getFunction = () => {
+  api
+    .getUser()
+    .then((userData) => {
+      userInfo.setUserInfo({
+        name: userData.name,
+        description: userData.about,
+      });
+      const profileTitle = document.querySelector("#profile-title");
+      const profileDescription = document.querySelector("#profile-description");
+      const profileImage = document.querySelector(".profile__image");
+
+      profileTitle.textContent = userData.name;
+      profileDescription.textContent = userData.about;
+      profileImage.src = userData.avatar;
+    })
+    .catch((error) => {
+      console.log(error);
     });
-    cardList.renderItems();
-    console.log(res);
-  })
-  .catch(console.error);
+};
 
 const addCardPopup = new PopupWithForm({
   popupSelector: "#javascript-add-card-modal",
-  handleFormSubmit: ({ title: name, url: link }) => {
-    cardList.addItem(createCard({ name, link }));
+  handleFormSubmit: ({ title, url }) => {
+    const cardData = {
+      title,
+      url,
+    };
 
-    formValidators["cardForm"].disableSubmitButton();
-  },
-});
-
-const userInfo = new Userinfo("#profile-title", "#profile-description");
-
-const profileEditPopup = new PopupWithForm({
-  popupSelector: "#javascript-profile-edit-modal",
-  handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
+    api
+      .addCard(cardData)
+      .then((newCard) => {
+        const cardElement = createCard(newCard);
+        cardList.addItem(cardElement);
+        formValidators["cardForm"].disableSubmitButton();
+        addCardPopup.close();
+      })
+      .catch((error) => {
+        console.error("Error adding card:", error);
+      });
   },
 });
 
 addCardPopup.setEventListeners();
-
-profileEditPopup.setEventListeners();
 
 const addImagePopup = new PopupWithImage({
   popupSelector: "#javascript-image-preview-modal",
 });
 
 addImagePopup.setEventListeners();
+
+// --------------  UPDATE USER ----------->>
+
+const userInfo = new Userinfo("#profile-title", "#profile-description");
+
+const profileEditPopup = new PopupWithForm({
+  popupSelector: "#javascript-profile-edit-modal",
+  handleFormSubmit: (data) => {
+    const { title, Description } = data;
+    api
+      .updateUser({ name: title, about: Description })
+      .then((userData) => {
+        userInfo.setUserInfo({
+          name: userData.name,
+          about: userData.about,
+        });
+        getFunction();
+      })
+      .catch(console.error);
+  },
+});
+
+profileEditPopup.setEventListeners();
+
+// ----------------- PROFILE IMAGE ---------------->>
+document.addEventListener("DOMContentLoaded", () => {
+  const profileImage = document.querySelector(".profile__image");
+  const profileEditSection = document.querySelector("#profile-edit-section");
+  const editIconSvg = `
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M26 3.45351L6.76981 22.7932L3.33585 19.2903L22.517 0L26 3.45351ZM0 26L5.10189 24.4706L1.52075 21.0171L0 26Z" fill="white"/>
+    </svg>
+  `;
+
+  let editIconContainer;
+
+  const profileImageEditPopup = new ProfileImageEditPopup({
+    popupSelector: "#javascript-profile-image-confirm-modal",
+    onConfirm: () => {
+      profileEditSection.classList.remove("hidden");
+      profileImage.style.opacity = "0.8";
+
+      editIconContainer = document.createElement("div");
+      editIconContainer.className = "profile__edit-icon";
+      editIconContainer.innerHTML = editIconSvg;
+
+      const imageContainer = profileImage.parentElement;
+      imageContainer.appendChild(editIconContainer);
+
+      editIconContainer.addEventListener("click", () => {
+        profileImageFormPopup.open();
+      });
+    },
+  });
+
+  const profileImageFormPopup = new PopupChangeProfileImage({
+    popupSelector: "#javascript-profile-image-form-modal",
+    handleFormSubmit: (formData) => {
+      const { avatarUrl } = formData;
+      api
+        .updateProfilePicture({ avatarUrl })
+        .then((userData) => {
+          profileImage.src = userData.avatar;
+          profileImageFormPopup.close();
+          getFunction();
+
+          // Hide the edit icon and reset the image opacity
+          if (editIconContainer) {
+            editIconContainer.remove();
+          }
+          profileImage.style.opacity = "1";
+        })
+        .catch((error) => {
+          console.error("Error updating profile picture:", error);
+        });
+    },
+  });
+
+  profileImageEditPopup.setEventListeners();
+  profileImageFormPopup.setEventListeners();
+
+  profileImage.addEventListener("click", () => {
+    console.log("clicked on image");
+    profileImageEditPopup.open();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  function openDeleteModal(cardElement) {
+    const cardId = cardElement.dataset.id;
+
+    const deleteModal = document.getElementById(
+      "javascript-card-delete-confirm-modal"
+    );
+    deleteModal.classList.add("modal_opened");
+
+    const confirmDeleteButton = document.getElementById(
+      "javascript-card-delete-confirm-yes-button"
+    );
+
+    confirmDeleteButton.removeEventListener("click", handleConfirmDelete);
+    confirmDeleteButton.addEventListener("click", handleConfirmDelete);
+
+    function handleConfirmDelete() {
+      api
+        .deleteCard(cardId)
+        .then(() => {
+          cardElement.remove();
+        })
+        .catch((err) => {
+          console.error(`Failed to delete card: ${err}`);
+        });
+      closeModal(deleteModal);
+    }
+
+    const closeDeleteModalButton = document.getElementById(
+      "javascript-card-delete-confirm-close-modal"
+    );
+    closeDeleteModalButton.addEventListener("click", () =>
+      closeModal(deleteModal)
+    );
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove("modal_opened");
+  }
+
+  document
+    .getElementById("javascript-cards__list")
+    .addEventListener("click", (event) => {
+      if (event.target.classList.contains("card__trash-image")) {
+        const cardElement = event.target.closest(".card");
+        openDeleteModal(cardElement);
+      }
+    });
+});
 
 //----PROFILE EDIT MODAL---->>
 const profileEditModal = document.querySelector(
@@ -158,6 +329,10 @@ enableValidation(options);
 function expand({ name, link }) {
   addImagePopup.open({ name, link });
 }
+
+// declare a delete click handler
+// and pass it to card constructor
+function handleDeleteClick() {}
 
 // helper function
 function createCard(item) {

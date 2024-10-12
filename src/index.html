@@ -9,7 +9,7 @@
     <meta name="keywords" content="HTML, CSS, Javascript" />
     <meta name="author" content="JJ Plamoottil" />
     <meta name="viewport" content="=width=device-width, initial-scale=1.0" />
-    <title>JJ PROJECT_8: Around the USA</title>
+    <title>JJ PROJECT_9: Around the USA</title>
 
     <!--style sheet and icon link-->
     <link rel="shortcut icon" href="favicon.ico" />
@@ -25,27 +25,77 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./card-images/john_plamoottil.png')%>"
-            alt="Avator"
-            class="profile__image"
-          />
+          <img src="" alt="Avator" class="profile__image" />
+          <div class="modal" id="javascript-profile-image-confirm-modal">
+            <div class="modal__container">
+              <button
+                class="modal__close modal__close_form"
+                id="javascript-profile-image-confirm-close-modal"
+              ></button>
+              <p class="modal__title">Are you sure?</p>
+              <button
+                class="modal__confirm-button modal__button"
+                id="javascript-profile-image-confirm-yes-button"
+                type="button"
+              >
+                Yes
+              </button>
+            </div>
+          </div>
           <div class="profile__content">
-            <h1 class="profile__title" id="profile-title">JJ Plamoottil</h1>
+            <h1 class="profile__title" id="profile-title"></h1>
             <button
               class="profile__edit-button"
               id="javascript-profile__edit-button"
               type="button"
             ></button>
-            <p class="profile__description" id="profile-description">
-              Software Engineering Student
-            </p>
+            <p class="profile__description" id="profile-description"></p>
           </div>
           <button
             type="button"
             class="profile__add-button"
             id="javascript-profile-add-button"
           ></button>
+        </section>
+
+        <section class="profile page__section hidden" id="profile-edit-section">
+          <div class="profile__image-container">
+            <!-- <img src="" alt="Avatar" class="profile__image"> -->
+            <div class="profile__edit-icon"></div>
+          </div>
+        </section>
+        <section class="page__section">
+          <div class="modal" id="javascript-profile-image-form-modal">
+            <div class="modal__container">
+              <button
+                class="modal__close modal__close_form"
+                id="javascript-profile-image-form-close-modal"
+              ></button>
+              <h3 class="modal__title">Change Profile Picture</h3>
+              <form class="modal__form" id="profile-image-form" novalidate>
+                <label class="modal__label">
+                  <input
+                    type="url"
+                    name="imageUrl"
+                    class="modal__input"
+                    id="profile-image-url-input"
+                    placeholder="Image URL"
+                    required
+                  />
+                  <span
+                    class="modal__error"
+                    id="profile-image-url-input-error"
+                  ></span>
+                </label>
+                <button
+                  class="modal__submit-button modal__button"
+                  type="submit"
+                >
+                  Save
+                </button>
+              </form>
+            </div>
+          </div>
         </section>
         <section class="page__section">
           <ul class="cards__list" id="javascript-cards__list"></ul>
@@ -207,6 +257,24 @@
           </div>
         </li>
       </template>
+
+      <div class="modal" id="javascript-card-delete-confirm-modal">
+        <div class="modal__container">
+          <button
+            class="modal__close modal__close_form"
+            id="javascript-card-delete-confirm-close-modal"
+          ></button>
+          <p class="modal__title">Are you sure?</p>
+          <button
+            class="modal__confirm-button modal__button"
+            id="javascript-card-delete-confirm-yes-button"
+            type="button"
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+
       <!--End of card render template-->
       <footer class="footer">
         <p class="footer__copyright">©Oct2024 John Plamoottil</p>

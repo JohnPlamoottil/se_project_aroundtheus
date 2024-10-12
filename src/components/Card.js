@@ -1,4 +1,5 @@
 export default class Card {
+  // update the constructor to accept the delete click handler
   constructor({ name, link }, cardSelector, expand) {
     this._name = name;
     this._link = link;
@@ -21,7 +22,7 @@ export default class Card {
 
     this._trashButton.addEventListener("click", () => {
       // this._handleTrashIcon("click-trash"); instead of this function, you need to create and call a different one, which will remove the card!
-      this._handleCardDelete();
+      // Call the delete clikc handler that was passed as argument to constructor
     });
 
     this._cardImage.addEventListener("click", () => {
@@ -42,6 +43,8 @@ export default class Card {
     this._likeButton.classList.toggle("card__like-button_is-active");
   }
 
+  // make this method public
+  // call it remove or removeCard
   _handleCardDelete() {
     this._cardElement.remove();
   }
