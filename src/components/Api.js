@@ -58,9 +58,9 @@ export default class Api {
     });
   }
 
-  cardLikes(cardId) {
+  cardLikes(cardId, isLiked) {
     return fetch(`${this.url}/cards/${cardId}/likes`, {
-      method: "PUT",
+      method: isLiked ? "DELETE" : "PUT",
       headers: this.headers,
     }).then((res) => {
       if (res.ok) {
@@ -70,17 +70,17 @@ export default class Api {
     });
   }
 
-  cardUnlikes(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes`, {
-      method: "DELETE",
-      headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
-  }
+  // cardUnlikes(cardId) {
+  //   return fetch(`${this.url}/cards/${cardId}/likes`, {
+  //     method: "DELETE",
+  //     headers: this.headers,
+  //   }).then((res) => {
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //     return Promise.reject(`Error: ${res.status}`);
+  //   });
+  // }
 
   updateProfilePicture({ avatarUrl }) {
     console.log(avatarUrl);

@@ -13,11 +13,12 @@ import {
   profileEditForm,
   profileAddCardButton,
   addCardForm,
+  profileEditAvatarButton,
 } from "../utils/constants.js";
-import { data } from "autoprefixer";
+
 import Api from "../components/Api.js";
-import ProfileImageEditPopup from "../components/PopupEditProfileImage.js";
-import PopupChangeProfileImage from "../components/PopupChangeProfileImage.js";
+
+import CardDeletePopup from "../components/CardDeletePopup.js";
 
 /*------------------------------------ELEMENTS---------------------------------*/
 
@@ -39,7 +40,7 @@ const getCardFunction = () => {
         items: res,
         renderer: (cardData) => {
           const cardElement = createCard(cardData);
-          cardList.addItem(cardElement);
+          cardList.addItem(cardElement, "append");
         },
         containerSelector: "#javascript-cards__list",
       });
@@ -75,7 +76,7 @@ const getFunction = () => {
       profileImage.src = userData.avatar;
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
     });
 };
 
@@ -108,6 +109,11 @@ const addImagePopup = new PopupWithImage({
 });
 
 addImagePopup.setEventListeners();
+
+const cardTrashPopup = new CardDeletePopup({
+  popupSelector: "#javascript-card-delete-confirm-modal",
+  onConfirm: () => {},
+});
 
 // --------------  UPDATE USER ----------->>
 
@@ -144,26 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let editIconContainer;
 
-  const profileImageEditPopup = new ProfileImageEditPopup({
-    popupSelector: "#javascript-profile-image-confirm-modal",
-    onConfirm: () => {
-      profileEditSection.classList.remove("hidden");
-      profileImage.style.opacity = "0.8";
-
-      editIconContainer = document.createElement("div");
-      editIconContainer.className = "profile__edit-icon";
-      editIconContainer.innerHTML = editIconSvg;
-
-      const imageContainer = profileImage.parentElement;
-      imageContainer.appendChild(editIconContainer);
-
-      editIconContainer.addEventListener("click", () => {
-        profileImageFormPopup.open();
-      });
-    },
-  });
-
-  const profileImageFormPopup = new PopupChangeProfileImage({
+  const profileImageFormPopup = new PopupWithForm({
     popupSelector: "#javascript-profile-image-form-modal",
     handleFormSubmit: (formData) => {
       const { avatarUrl } = formData;
@@ -186,63 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  profileImageEditPopup.setEventListeners();
   profileImageFormPopup.setEventListeners();
 
-  profileImage.addEventListener("click", () => {
+  profileEditAvatarButton.addEventListener("click", () => {
     console.log("clicked on image");
-    profileImageEditPopup.open();
+    profileImageFormPopup.open();
   });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  function openDeleteModal(cardElement) {
-    const cardId = cardElement.dataset.id;
-
-    const deleteModal = document.getElementById(
-      "javascript-card-delete-confirm-modal"
-    );
-    deleteModal.classList.add("modal_opened");
-
-    const confirmDeleteButton = document.getElementById(
-      "javascript-card-delete-confirm-yes-button"
-    );
-
-    confirmDeleteButton.removeEventListener("click", handleConfirmDelete);
-    confirmDeleteButton.addEventListener("click", handleConfirmDelete);
-
-    function handleConfirmDelete() {
-      api
-        .deleteCard(cardId)
-        .then(() => {
-          cardElement.remove();
-        })
-        .catch((err) => {
-          console.error(`Failed to delete card: ${err}`);
-        });
-      closeModal(deleteModal);
-    }
-
-    const closeDeleteModalButton = document.getElementById(
-      "javascript-card-delete-confirm-close-modal"
-    );
-    closeDeleteModalButton.addEventListener("click", () =>
-      closeModal(deleteModal)
-    );
-  }
-
-  function closeModal(modal) {
-    modal.classList.remove("modal_opened");
-  }
-
-  document
-    .getElementById("javascript-cards__list")
-    .addEventListener("click", (event) => {
-      if (event.target.classList.contains("card__trash-image")) {
-        const cardElement = event.target.closest(".card");
-        openDeleteModal(cardElement);
-      }
-    });
 });
 
 //----PROFILE EDIT MODAL---->>
@@ -330,13 +266,45 @@ function expand({ name, link }) {
   addImagePopup.open({ name, link });
 }
 
-// declare a delete click handler
-// and pass it to card constructor
-function handleDeleteClick() {}
+//runs when you click a card's delete button
+function handleDeleteClick(card) {
+  //open up the delete-confirmation modal
+  cardTrashPopup.open();
+  cardTrashPopup.setSubmitHandler(() => {
+    //runs when we click the yes button on the delete-confirm modal
+    //delete card on server
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        //delete card on dom
+        card.removeCardFromDom();
+        //close modal
+        cardTrashPopup.close();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+}
+
+function handleLikeClick(card) {
+  //check if a card is liked or not
+  //if not, we will like it on the server and then like it on the dom
+  //if it is liked, we unlike it on the server and then unlike it on the dom
+  api.cardLikes(card._id, card._isLiked).then(() => {
+    card.handleLikeIcon();
+  });
+}
 
 // helper function
 function createCard(item) {
-  const cardElement = new Card(item, "#javascript-card-template", expand);
+  const cardElement = new Card(
+    item,
+    "#javascript-card-template",
+    expand,
+    handleDeleteClick,
+    handleLikeClick
+  );
   return cardElement.getView();
 }
 

@@ -15,8 +15,11 @@ class CardDeletePopup extends Popup {
 
     this._confirmButton.addEventListener("click", () => {
       this._onConfirm();
-      this.close();
     });
+  }
+
+  setSubmitHandler(handler) {
+    this._onConfirm = handler;
   }
 
   open() {

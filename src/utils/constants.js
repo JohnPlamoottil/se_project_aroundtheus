@@ -49,3 +49,6 @@ export const addCardForm = document.querySelector(
 export const preview__image = document.querySelector(
   "#javascript-preview__image"
 );
+export const profileEditAvatarButton = document.querySelector(
+  ".profile__edit-avatar-button"
+);
