@@ -180,6 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
               image: userData.avatar,
             });
 
+            formValidators.imageForm.disableSubmitButton();
+
             profileImageFormPopup.close();
             profileImageFormPopup.resetForm();
           })
