@@ -11,7 +11,10 @@ export default class Section {
     });
   }
 
-  addItem(element) {
-    this._container.prepend(element);
+  addItem(element, method = "prepend") {
+    //this._container(element);
+    this._container[method](element);
+    // prepend makes the new cards go before all the other cards
+    // append adds it after all the other cards
   }
 }

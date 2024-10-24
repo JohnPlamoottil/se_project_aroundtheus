@@ -1,14 +1,21 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, expand) {
+  // update the constructor to accept the delete click handler
+  constructor(
+    { name, link, _id, isLiked },
+    cardSelector,
+    expand,
+    handleDeleteClick,
+    handleLikeClick
+  ) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
     this._expand = expand;
+    this._handleDeleteClick = handleDeleteClick;
+    this._id = _id;
+    this._isLiked = isLiked;
+    this._handleLikeClick = handleLikeClick;
   }
-
-  // testMethod() {
-  //   console.log(this.name);
-  // }
 
   _setEventListeners() {
     this._likeButton = this._cardElement.querySelector(".card__like-button");
@@ -16,12 +23,14 @@ export default class Card {
     //does this have the funcitonality for deleting? no because something is different
 
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeIcon();
+      //call a function from index.js that makes the api call to like or unlike the card
+      this._handleLikeClick(this);
     });
 
     this._trashButton.addEventListener("click", () => {
       // this._handleTrashIcon("click-trash"); instead of this function, you need to create and call a different one, which will remove the card!
-      this._handleCardDelete();
+      // Call the delete clikc handler that was passed as argument to constructor
+      this._handleDeleteClick(this);
     });
 
     this._cardImage.addEventListener("click", () => {
@@ -30,19 +39,15 @@ export default class Card {
         link: this._link,
       });
     });
-
-    //""
-    // const deleteButton = this._cardElement.querySelector(
-    //   ".card__delete-button"
-    // );
-    // alert("You did it!");
   }
 
-  _handleLikeIcon() {
+  handleLikeIcon() {
     this._likeButton.classList.toggle("card__like-button_is-active");
   }
 
-  _handleCardDelete() {
+  // make this method public
+  // call it remove or removeCard
+  removeCardFromDom() {
     this._cardElement.remove();
   }
 
@@ -58,6 +63,9 @@ export default class Card {
     this._cardTitle.textContent = this._name;
     this._cardImage.alt = this._name;
     this._setEventListeners();
+    if (this._isLiked) {
+      this._likeButton.classList.add("card__like-button_is-active");
+    }
     //return the card
     return this._cardElement;
   }
