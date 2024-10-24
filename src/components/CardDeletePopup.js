@@ -21,10 +21,6 @@ class CardDeletePopup extends Popup {
   setSubmitHandler(handler) {
     this._onConfirm = handler;
   }
-
-  open() {
-    super.open();
-  }
 }
 
 export default CardDeletePopup;

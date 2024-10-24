@@ -7,6 +7,7 @@ export default class PopupWithForm extends Popup {
 
     // this._popup = document.querySelector(popupSelector);
     this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._button = this._popupElement.querySelector(".modal__button");
     this._inputValues = [
       ...this._popupElement.querySelectorAll(".modal__input"),
     ];
@@ -32,10 +33,20 @@ export default class PopupWithForm extends Popup {
       e.preventDefault();
 
       this._handleFormSubmit(this._getInputValues());
-      this.close();
-      this._popupForm.reset();
     });
 
     super.setEventListeners();
+  }
+
+  setButtonText(isLoading) {
+    if (isLoading) {
+      this._button.textContent = "Saving...";
+    } else {
+      this._button.textContent = "Save";
+    }
+  }
+
+  resetForm() {
+    this._popupForm.reset();
   }
 }

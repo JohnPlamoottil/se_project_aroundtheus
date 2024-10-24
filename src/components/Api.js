@@ -1,43 +1,45 @@
-import { addCardForm } from "../utils/constants";
-
 export default class Api {
   constructor({ url, headers }) {
-    (this.url = url), (this.headers = headers);
+    this.url = url;
+    this.headers = headers;
+  }
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject("Error");
   }
 
   getCards() {
     return fetch(`${this.url}/cards`, {
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-
-      return Promise.reject("Error");
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   getUser() {
     return fetch(`${this.url}/users/me`, {
       headers: this.headers,
-    }).then((res) => {
-      if (!res.ok) {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-      return res.json();
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   deleteCard(cardId) {
     return fetch(`${this.url}/cards/${cardId}`, {
       method: "DELETE",
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   updateUser({ name, about }) {
@@ -49,37 +51,32 @@ export default class Api {
         name,
         about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-
-      return Promise.reject("Error");
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   cardLikes(cardId, isLiked) {
     return fetch(`${this.url}/cards/${cardId}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   // cardUnlikes(cardId) {
   //   return fetch(`${this.url}/cards/${cardId}/likes`, {
   //     method: "DELETE",
   //     headers: this.headers,
-  //   }).then((res) => {
-  //     if (res.ok) {
-  //       return res.json();
-  //     }
-  //     return Promise.reject(`Error: ${res.status}`);
-  //   });
+  //   }).then(this._checkResponse)
+  // .catch((error) => {
+  //   console.error(error);
+  // });
   // }
 
   updateProfilePicture({ avatarUrl }) {
@@ -90,12 +87,11 @@ export default class Api {
       body: JSON.stringify({
         avatar: avatarUrl,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Error");
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   addCard(data) {
@@ -106,12 +102,10 @@ export default class Api {
         name: data.title,
         link: data.url,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-
-      return Promise.reject("Error");
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }

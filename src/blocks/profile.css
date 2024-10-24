@@ -18,6 +18,10 @@
   border-radius: 100%;
 }
 
+/* .profile__image:hover {
+  opacity: 1;
+} */
+
 .profile__edit-avatar-button {
   position: absolute;
   top: 0;

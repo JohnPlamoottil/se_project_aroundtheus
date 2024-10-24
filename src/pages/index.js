@@ -66,14 +66,8 @@ const getFunction = () => {
       userInfo.setUserInfo({
         name: userData.name,
         description: userData.about,
+        image: userData.avatar,
       });
-      const profileTitle = document.querySelector("#profile-title");
-      const profileDescription = document.querySelector("#profile-description");
-      const profileImage = document.querySelector(".profile__image");
-
-      profileTitle.textContent = userData.name;
-      profileDescription.textContent = userData.about;
-      profileImage.src = userData.avatar;
     })
     .catch((error) => {
       console.error(error);
@@ -88,17 +82,26 @@ const addCardPopup = new PopupWithForm({
       url,
     };
 
-    api
-      .addCard(cardData)
-      .then((newCard) => {
-        const cardElement = createCard(newCard);
-        cardList.addItem(cardElement);
-        formValidators["cardForm"].disableSubmitButton();
-        addCardPopup.close();
-      })
-      .catch((error) => {
-        console.error("Error adding card:", error);
-      });
+    addCardPopup.setButtonText(true);
+
+    setTimeout(() => {
+      api
+        .addCard(cardData)
+        .then((newCard) => {
+          const cardElement = createCard(newCard);
+          cardList.addItem(cardElement);
+          formValidators["cardForm"].disableSubmitButton();
+          addCardPopup.close();
+          addCardPopup.resetForm();
+        })
+        .catch((error) => {
+          console.error("Error adding card:", error);
+        })
+        .finally(() => {
+          // set the button text back
+          addCardPopup.setButtonText(false);
+        });
+    }, 300);
   },
 });
 
@@ -117,22 +120,35 @@ const cardTrashPopup = new CardDeletePopup({
 
 // --------------  UPDATE USER ----------->>
 
-const userInfo = new Userinfo("#profile-title", "#profile-description");
+const userInfo = new Userinfo(
+  "#profile-title",
+  "#profile-description",
+  ".profile__image"
+);
 
 const profileEditPopup = new PopupWithForm({
   popupSelector: "#javascript-profile-edit-modal",
   handleFormSubmit: (data) => {
     const { title, Description } = data;
-    api
-      .updateUser({ name: title, about: Description })
-      .then((userData) => {
-        userInfo.setUserInfo({
-          name: userData.name,
-          about: userData.about,
+    profileEditPopup.setButtonText(true);
+    setTimeout(() => {
+      api
+        .updateUser({ name: title, about: Description })
+        .then((userData) => {
+          userInfo.setUserInfo({
+            name: userData.name,
+            description: userData.about,
+            image: userData.avatar,
+          });
+
+          profileEditPopup.close();
+          profileEditPopup.resetForm();
+        })
+        .catch(console.error)
+        .finally(() => {
+          profileEditPopup.setButtonText(false);
         });
-        getFunction();
-      })
-      .catch(console.error);
+    }, 300);
   },
 });
 
@@ -148,28 +164,32 @@ document.addEventListener("DOMContentLoaded", () => {
     </svg>
   `;
 
-  let editIconContainer;
-
   const profileImageFormPopup = new PopupWithForm({
     popupSelector: "#javascript-profile-image-form-modal",
     handleFormSubmit: (formData) => {
       const { avatarUrl } = formData;
-      api
-        .updateProfilePicture({ avatarUrl })
-        .then((userData) => {
-          profileImage.src = userData.avatar;
-          profileImageFormPopup.close();
-          getFunction();
 
-          // Hide the edit icon and reset the image opacity
-          if (editIconContainer) {
-            editIconContainer.remove();
-          }
-          profileImage.style.opacity = "1";
-        })
-        .catch((error) => {
-          console.error("Error updating profile picture:", error);
-        });
+      setTimeout(() => {
+        profileImageFormPopup.setButtonText(true);
+        api
+          .updateProfilePicture({ avatarUrl })
+          .then((userData) => {
+            userInfo.setUserInfo({
+              name: userData.name,
+              description: userData.about,
+              image: userData.avatar,
+            });
+
+            profileImageFormPopup.close();
+            profileImageFormPopup.resetForm();
+          })
+          .catch((error) => {
+            console.error("Error updating profile picture:", error);
+          })
+          .finally(() => {
+            profileImageFormPopup.setButtonText(false);
+          });
+      }, 300);
     },
   });
 
