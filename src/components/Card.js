@@ -12,10 +12,11 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._expand = expand;
     this._handleDeleteClick = handleDeleteClick;
-    this._id = _id;
-    this._isLiked = isLiked;
+    this.id = _id;
+    this.isLiked = isLiked;
     this._handleLikeClick = handleLikeClick;
   }
+  //private fields has ._ BUT public fields do not
 
   _setEventListeners() {
     this._likeButton = this._cardElement.querySelector(".card__like-button");
@@ -63,7 +64,7 @@ export default class Card {
     this._cardTitle.textContent = this._name;
     this._cardImage.alt = this._name;
     this._setEventListeners();
-    if (this._isLiked) {
+    if (this.isLiked) {
       this._likeButton.classList.add("card__like-button_is-active");
     }
     //return the card

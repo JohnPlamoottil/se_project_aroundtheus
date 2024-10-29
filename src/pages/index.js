@@ -148,7 +148,7 @@ const profileEditPopup = new PopupWithForm({
         .finally(() => {
           profileEditPopup.setButtonText(false);
         });
-    }, 300);
+    }, 500);
   },
 });
 
@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M26 3.45351L6.76981 22.7932L3.33585 19.2903L22.517 0L26 3.45351ZM0 26L5.10189 24.4706L1.52075 21.0171L0 26Z" fill="white"/>
     </svg>
+
   `;
 
   const profileImageFormPopup = new PopupWithForm({
@@ -180,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
               image: userData.avatar,
             });
 
-            formValidators.imageForm.disableSubmitButton();
+            formValidators["imageForm"].disableSubmitButton();
 
             profileImageFormPopup.close();
             profileImageFormPopup.resetForm();
@@ -296,7 +297,7 @@ function handleDeleteClick(card) {
     //runs when we click the yes button on the delete-confirm modal
     //delete card on server
     api
-      .deleteCard(card._id)
+      .deleteCard(card.id)
       .then(() => {
         //delete card on dom
         card.removeCardFromDom();
@@ -313,9 +314,16 @@ function handleLikeClick(card) {
   //check if a card is liked or not
   //if not, we will like it on the server and then like it on the dom
   //if it is liked, we unlike it on the server and then unlike it on the dom
-  api.cardLikes(card._id, card._isLiked).then(() => {
-    card.handleLikeIcon();
-  });
+  console.log(card);
+  console.log(card.isLiked);
+  api
+    .cardLikes(card.id, card.isLiked)
+    .then(() => {
+      card.handleLikeIcon();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 // helper function
