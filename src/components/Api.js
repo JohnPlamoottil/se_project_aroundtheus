@@ -14,32 +14,29 @@ export default class Api {
   getCards() {
     return fetch(`${this.url}/cards`, {
       headers: this.headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.error(error);
-      });
+    }).then(this._checkResponse);
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   }
 
   getUser() {
     return fetch(`${this.url}/users/me`, {
       headers: this.headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.error(error);
-      });
+    }).then(this._checkResponse);
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   }
 
   deleteCard(cardId) {
     return fetch(`${this.url}/cards/${cardId}`, {
       method: "DELETE",
       headers: this.headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.error(error);
-      });
+    }).then(this._checkResponse);
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   }
 
   updateUser({ name, about }) {
@@ -51,22 +48,20 @@ export default class Api {
         name,
         about,
       }),
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.error(error);
-      });
+    }).then(this._checkResponse);
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   }
 
   cardLikes(cardId, isLiked) {
     return fetch(`${this.url}/cards/${cardId}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this.headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.error(error);
-      });
+    }).then(this._checkResponse);
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   }
 
   // cardUnlikes(cardId) {
@@ -87,11 +82,10 @@ export default class Api {
       body: JSON.stringify({
         avatar: avatarUrl,
       }),
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.error(error);
-      });
+    }).then(this._checkResponse);
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   }
 
   addCard(data) {
@@ -102,10 +96,9 @@ export default class Api {
         name: data.title,
         link: data.url,
       }),
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.error(error);
-      });
+    }).then(this._checkResponse);
+    // .catch((error) => {
+    //   console.error(error);
+    // });
   }
 }

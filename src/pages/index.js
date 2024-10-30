@@ -5,14 +5,11 @@ import "../pages/index.css";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import Userinfo from "../components/Userinfo.js";
+import UserInfo from "../components/UserInfo.js";
 import {
   options,
-  initialCards,
   profileEditButton,
-  profileEditForm,
   profileAddCardButton,
-  addCardForm,
   profileEditAvatarButton,
 } from "../utils/constants.js";
 
@@ -120,7 +117,7 @@ const cardTrashPopup = new CardDeletePopup({
 
 // --------------  UPDATE USER ----------->>
 
-const userInfo = new Userinfo(
+const userInfo = new UserInfo(
   "#profile-title",
   "#profile-description",
   ".profile__image"
@@ -205,61 +202,61 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //----PROFILE EDIT MODAL---->>
-const profileEditModal = document.querySelector(
-  "#javascript-profile-edit-modal"
-);
+// const profileEditModal = document.querySelector(
+//   "#javascript-profile-edit-modal"
+// );
 
 //----PROFILE CLOSE MODAL--->>
-const profileCloseModal = profileEditModal.querySelector(
-  "#javascript-profile-close-modal"
-);
+// const profileCloseModal = profileEditModal.querySelector(
+//   "#javascript-profile-close-modal"
+// );
 
 //----PROFILE TITLE---->>
 
 //----PROFILE DESCRIPTION------>>
-const profileDescription = document.querySelector(".profile__description");
+// const profileDescription = document.querySelector(".profile__description");
 
-//----PROFILE TITLE INPUT------>>
-const profileTitleInput = document.querySelector(
-  "#javascript-profile-title-input"
-);
+// //----PROFILE TITLE INPUT------>>
+// const profileTitleInput = document.querySelector(
+//   "#javascript-profile-title-input"
+// );
 
-//----PROFILE DESCRIPTION INPUT------->>
-const profileDescriptionInput = document.querySelector(
-  "#javascript-profile-description-input"
-);
+// //----PROFILE DESCRIPTION INPUT------->>
+// const profileDescriptionInput = document.querySelector(
+//   "#javascript-profile-description-input"
+// );
 
 //----SELECT CARD TEMPLATE AND ELEMENT--->>
-const cardTemplate = document.querySelector("#javascript-card-template").content
-  .firstElementChild;
+// const cardTemplate = document.querySelector("#javascript-card-template").content
+//   .firstElementChild;
 
-const cardListElement = document.querySelector("#javascript-cards__list");
+// const cardListElement = document.querySelector("#javascript-cards__list");
 
-const addCardModal = document.querySelector("#javascript-add-card-modal");
+// const addCardModal = document.querySelector("#javascript-add-card-modal");
 
-const newCardTitleInput = addCardForm.querySelector(
-  "#javascript-add-card-title-input"
-);
-const newCardUrlInput = addCardForm.querySelector(
-  "#javascript-add-card-description-input"
-);
+// const newCardTitleInput = addCardForm.querySelector(
+//   "#javascript-add-card-title-input"
+// );
+// const newCardUrlInput = addCardForm.querySelector(
+//   "#javascript-add-card-description-input"
+// );
 
-const addCardModalCloseButton = addCardModal.querySelector(
-  "#javascript-add-card-close-modal"
-);
+// const addCardModalCloseButton = addCardModal.querySelector(
+//   "#javascript-add-card-close-modal"
+// );
 
 //---IMAGE PREVIEW MODAL ELEMENTS--->>
-const imagePreviewModal = document.querySelector(
-  "#javascript-image-preview-modal"
-);
+// const imagePreviewModal = document.querySelector(
+//   "#javascript-image-preview-modal"
+// );
 
-const imageClosePreviewModal = document.querySelector(
-  "#javascript-image-preview-close-modal"
-);
+// const imageClosePreviewModal = document.querySelector(
+//   "#javascript-image-preview-close-modal"
+// );
 
-const imageCaption = document.querySelector(
-  "#javascript-image-preview-card-title"
-);
+// const imageCaption = document.querySelector(
+//   "#javascript-image-preview-card-title"
+// );
 
 /* -------------------------------------------------------------------------- */
 /*                                   objects                                  */
