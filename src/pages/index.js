@@ -29,7 +29,7 @@ const api = new Api({
 
 let cardList;
 
-const getCardFunction = () => {
+const getInitialCards = () => {
   api
     .getCards()
     .then((res) => {
@@ -47,16 +47,16 @@ const getCardFunction = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  getCardFunction();
+  getInitialCards();
 });
 
 // ------------- USER PROFILE ----------
 
 document.addEventListener("DOMContentLoaded", () => {
-  const userInfos = document.querySelector(".content");
-  getFunction();
+  // const userInfos = document.querySelector(".content");
+  getUserInfo();
 });
-const getFunction = () => {
+const getUserInfo = () => {
   api
     .getUser()
     .then((userData) => {
@@ -81,24 +81,24 @@ const addCardPopup = new PopupWithForm({
 
     addCardPopup.setButtonText(true);
 
-    setTimeout(() => {
-      api
-        .addCard(cardData)
-        .then((newCard) => {
-          const cardElement = createCard(newCard);
-          cardList.addItem(cardElement);
-          formValidators["cardForm"].disableSubmitButton();
-          addCardPopup.close();
-          addCardPopup.resetForm();
-        })
-        .catch((error) => {
-          console.error("Error adding card:", error);
-        })
-        .finally(() => {
-          // set the button text back
-          addCardPopup.setButtonText(false);
-        });
-    }, 300);
+    // setTimeout(() => {
+    api
+      .addCard(cardData)
+      .then((newCard) => {
+        const cardElement = createCard(newCard);
+        cardList.addItem(cardElement);
+        formValidators["cardForm"].disableSubmitButton();
+        addCardPopup.close();
+        addCardPopup.resetForm();
+      })
+      .catch((error) => {
+        console.error("Error adding card:", error);
+      })
+      .finally(() => {
+        // set the button text back
+        addCardPopup.setButtonText(false);
+      });
+    // }, 300);
   },
 });
 
@@ -128,24 +128,24 @@ const profileEditPopup = new PopupWithForm({
   handleFormSubmit: (data) => {
     const { title, Description } = data;
     profileEditPopup.setButtonText(true);
-    setTimeout(() => {
-      api
-        .updateUser({ name: title, about: Description })
-        .then((userData) => {
-          userInfo.setUserInfo({
-            name: userData.name,
-            description: userData.about,
-            image: userData.avatar,
-          });
-
-          profileEditPopup.close();
-          profileEditPopup.resetForm();
-        })
-        .catch(console.error)
-        .finally(() => {
-          profileEditPopup.setButtonText(false);
+    // setTimeout(() => {
+    api
+      .updateUser({ name: title, about: Description })
+      .then((userData) => {
+        userInfo.setUserInfo({
+          name: userData.name,
+          description: userData.about,
+          image: userData.avatar,
         });
-    }, 500);
+
+        profileEditPopup.close();
+        profileEditPopup.resetForm();
+      })
+      .catch(console.error)
+      .finally(() => {
+        profileEditPopup.setButtonText(false);
+      });
+    // }, 500);
   },
 });
 
@@ -167,29 +167,29 @@ document.addEventListener("DOMContentLoaded", () => {
     handleFormSubmit: (formData) => {
       const { avatarUrl } = formData;
 
-      setTimeout(() => {
-        profileImageFormPopup.setButtonText(true);
-        api
-          .updateProfilePicture({ avatarUrl })
-          .then((userData) => {
-            userInfo.setUserInfo({
-              name: userData.name,
-              description: userData.about,
-              image: userData.avatar,
-            });
-
-            formValidators["imageForm"].disableSubmitButton();
-
-            profileImageFormPopup.close();
-            profileImageFormPopup.resetForm();
-          })
-          .catch((error) => {
-            console.error("Error updating profile picture:", error);
-          })
-          .finally(() => {
-            profileImageFormPopup.setButtonText(false);
+      // setTimeout(() => {
+      profileImageFormPopup.setButtonText(true);
+      api
+        .updateProfilePicture({ avatarUrl })
+        .then((userData) => {
+          userInfo.setUserInfo({
+            name: userData.name,
+            description: userData.about,
+            image: userData.avatar,
           });
-      }, 300);
+
+          formValidators["imageForm"].disableSubmitButton();
+
+          profileImageFormPopup.close();
+          profileImageFormPopup.resetForm();
+        })
+        .catch((error) => {
+          console.error("Error updating profile picture:", error);
+        })
+        .finally(() => {
+          profileImageFormPopup.setButtonText(false);
+        });
+      // }, 300);
     },
   });
 
