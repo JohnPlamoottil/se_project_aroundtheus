@@ -256,6 +256,7 @@ This project is a portion of the continuing project called Around the U.S. (star
          2. <!-- this module will load if the browser is older -->
             1. <script type="nomodule"></script>
 
+
 ### In Sprint 8, this project continues the refactoring from the previous project introducing a number of new classes:
 - Additionally, I will set up Webpack for the project.
 
@@ -337,6 +338,7 @@ This project is a portion of the continuing project called Around the U.S. (star
    8. Image and Font Processing
    9. CSS Minification and AMinification compresses file size while maintaining all functionality, while autoprefixing ensures cross-browser compatibility.utoprefixing with PostCSS
    10. Final Configuration Files
+
 
 ### In Sprint 9, this sprint focuses on asynchronous code and its application in working with APIs and making HTML requests:
 - This is the final pure JavaScript iteration of your Around the US project.
