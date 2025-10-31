@@ -1,5 +1,12 @@
-# Around the USA Project3 
+# Project3: Around the USA 
 Sprints 3-4-5-6-7-8-9
+
+# Tech Stacks used
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ## Check out the Live Site
 Hosted with GitHub pages, you can check out the live site here: 
@@ -19,7 +26,7 @@ Hosted with GitHub pages, you can check out the live site here:
 - Javascript (4)
 - Element Cloning (Moving and Removing Elements) (5)
 - DOM Related Methods Return Array-Like Collections
-  - These Collections are querySelectorAll, Array.from() (5)
+- These Collections are querySelectorAll, Array.from() (5)
 - Form Validation (6)
 - Event Handlers (6)
 - OOP (7)
@@ -36,7 +43,11 @@ Hosted with GitHub pages, you can check out the live site here:
 
 ## Introduction
 
-This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
+A projected based on a user friendly social media page that allows users to edit the account credentials to their own, add photos, delete photos and even like the photots!
+How the Project was created:
+
+Around The US was created using HTML/CSS as well as JavaScript with a high focus on OOP and reusability. The website features 4 forms, an add card form, an edit profile form, a change avatar form, and a confirm delete form that are all connected to an API server. Users can add cards of places, hobbies or anything they desire and make the page their own. They can also update the name and bio to whatever they desire. Users can also like the cards they have posted. The application and website is also fully responsive for users to enjoy on any device they are using.
+In the future Id love for this website to be connected to an actual backend that allows one user to connect with others. Doing this would also call for another HTML page that displays the users feed and shows posts from the other accounts that the user decides to follow. I also want to implement a like counter on the cards connected to the API so other users can like ones card.
 
 ## Project Objectives:
 
