@@ -1,6 +1,17 @@
-# Project 3-4-5-6-7-8-9: Around the USA
+# Around the USA Project3 
+Sprints 3-4-5-6-7-8-9
 
-### Overview
+## Check out the Live Site
+Hosted with GitHub pages, you can check out the live site here: 
+[Project Link](https://johnplamoottil.github.io/se_project_aroundtheus/)
+
+## Project 3 Youtube Video Submission
+[Project3 Video Submission Youtube unlisted Link](https://youtu.be/9h6GOltyLww)
+
+## Project 3 Youtube Video Demo
+[Project Demo - Around the US](https://youtu.be/LZCTDwtgJdI)
+
+## Project Overview
 
 - Intro (3)
 - Figma (3)
@@ -23,11 +34,94 @@
 - APIs  (9)
 - Object Prototypes (9)
 
-**Descriptions**
+## Introduction
+
+This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
+
+## Project Objectives:
+
+### Sprint3:
+
+1. working with design specs
+2. design in a world of ever-changing devices
+3. grid layout
+4. developing interfaces for different devices
+5. intermediate Git
+
+### Sprint4:
+
+1. Data Types and Variables
+2. Conditionals and Loops
+3. Data Structures, Arrays, and Objects
+4. Functions
+5. Basics of the DOM
+6. Debugging
+7. Export GIT
+
+### Sprint5:
+
+1. More About Strings, Numbers, and ...
+2. Array Methods
+3. Functions. Part2
+4. Working c the DOM. Part2
+5. Managing the GIT Story
+
+### Sprint6:
+
+1. Objects
+2. Event Handling
+3. Working with Forms
+4. Form Validation
+5. Debugging in Javascript
+
+### Sprint7:
+
+1. Intro to Object Oriented Programming OOP
+2. Interfaces in OOP
+3. Intro to Modular Javascript
+
+### Sprint8:
+
+1. Destructuring Syntax
+2. Interfaces in OOP Part2
+3. Project Building c WebPack
+
+### Sprint9:
+
+1. Asynchronous Programming
+2. Intro to Working with APIs
+3. Object Prototypes
+
+## Figma Links
+
+[Figma Project3 Link](https://www.figma.com/file/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432%3A187&mode=dev)
+
+[Figma Project4 Stage1](https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=0%3A1&mode=dev)
+
+[Figma Project4 Stage2 Link](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4%3A-Around-The-U.S.-%2F-desktop-%2B-mobile?node-id=6432%3A356&mode=dev)
+
+[Figma Project4 Stage3&4 Link](https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?type=design&node-id=0-1&mode=design&t=z5FVK2njhR9SnGnr-0)
+
+[Figma Project5 Link](https://www.figma.com/file/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?type=design&node-id=0-1&mode=design&t=3Is6tCgbLMhdDBfO-0#40;Copy&#41;?t=3hvVWRz9LUFsxyNn-6)
+
+[Figma Project6 Link](https://www.figma.com/file/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?fuid=1292520043125919162)
+
+[Figma Project9 Link](https://www.figma.com/design/E5x6ib3osaUUNwLRRAsTDX/Sprint-9-%E2%80%94-Applied-JavaScript?node-id=1530-2&t=PmjVPNRUjTbbT1SW-0)
+
+## Images
+[Project3 Image](./readme%20image/project3.png)
+- retrieved the images from the sprint3 platform
+- or the images could be directly exported from Figma is another method
+- optimized them so the projects load faster
+
+
+Good Luck and Have Fun!
+
+## Sprint Descriptions (In Detail)
 
 This project is a portion of the continuing project called Around the U.S. (started in Sprint3)
 
-In Sprint3, I created a responsive layout from the design specs in Figma using grids and adding buttons.
+### In Sprint3, I created a responsive layout from the design specs in Figma using grids and adding buttons:
 
 1. Working with fonts and text in Figma
 2. Working with images in Figma
@@ -36,14 +130,15 @@ In Sprint3, I created a responsive layout from the design specs in Figma using g
 5. Deploy your project to GitHub Pages
 6. Publish your project on GitHub Pages for the whole world to see.
 
-In Sprint4 I utilized Javascript (script.js) to make the project interactive:
+### In Sprint4, I utilized Javascript (script.js) to make the project interactive:
 
 1. stage 1 - creating an array for initial cards for the 6 imgs and links
 2. stage 2 - creating a modal box in the CSS
 3. stage 3 - using the DOM to create buttons within About Me, Save, Close integrated with HTML and CSS and JS
 4. stage 4 - adding final functionality to the modal box and making the 6 cards render from the array
 
-In Sprint5, I added on more elements to the previous project. The elements I added includes a new modal for adding new cards to display, an image popup that toggles on mouse-click, a like button that interacts with mouse-clicks and a delete icon that removes cards fromthe page.
+### In Sprint5, I added on more elements to the previous project: 
+- The elements I added includes a new modal for adding new cards to display, an image popup that toggles on mouse-click, a like button that interacts with mouse-clicks and a delete icon that removes cards fromthe page.
 
 1. Rendered Cards
 2. Form for Adding a Card
@@ -53,7 +148,8 @@ In Sprint5, I added on more elements to the previous project. The elements I add
 6. Opening a Picture Modal
 7. Smooth Modal Opening and Closing
 
-In Sprint6, I started to debug JS using console.log() to validate changes made on the console. Also I incorporated the use of Objects, Event Handlers, Forms, & Form Validation.
+### In Sprint6, I started to debug JS using console.log() to validate changes made on the console:
+- Also I incorporated the use of Objects, Event Handlers, Forms, & Form Validation.
 
 1. Objects
    1. intro to objects
@@ -97,7 +193,9 @@ In Sprint6, I started to debug JS using console.log() to validate changes made o
 5. Debugging in Javascript
    1. console.log
 
-In Sprint7, the purpose is to change javascript classes as Max pointed out in his tutorial. The classes to focus on are Card.js and FormValidator.js with text and images in the scripts folder. Refactoring the code by removing validation.js and shifting to Card.js and FormValidator.js
+### In Sprint7, the purpose is to change javascript classes:
+- The classes to focus on are Card.js and FormValidator.js with text and images in the scripts folder. 
+- Refactoring the code by removing validation.js and shifting to Card.js and FormValidator.js
 
 1. Intro to Object Oriented Programming OOP
    1. program - a set of interacting objects that make up a single structure
@@ -126,7 +224,7 @@ In Sprint7, the purpose is to change javascript classes as Max pointed out in hi
       2. create instances of the subclass
    5. Polymorphism
  
-1. Intro to Modular Javascript
+3. Intro to Modular Javascript
    1. immediately invoked function expression IIFE - an anonymous function that runs as soon as its defined. since all variables inside a function are LOCAL VARIABLES, wrapping all the code inside an IIFE will prevent any of them from being global or preventing it from being accessed from outside the IIFE. 
    2. Modules is an independent unit of code supporting a part of the program's functionality.  
    3. Export and Import Statements
@@ -147,7 +245,8 @@ In Sprint7, the purpose is to change javascript classes as Max pointed out in hi
          2. <!-- this module will load if the browser is older -->
             1. <script type="nomodule"></script>
 
-In Sprint 8, this project continues the refactoring from the previous project, introducing a number of new classes. Additionally, I will set up Webpack for the project.
+### In Sprint 8, this project continues the refactoring from the previous project introducing a number of new classes:
+- Additionally, I will set up Webpack for the project.
 
 1. Destructuring Syntax = Destructuring is a convenient syntax that allows us to unpack arrays and objects, easily assigning the values they contain to variables. 
    1. OBJECT DESTRUCTURING
@@ -228,9 +327,11 @@ In Sprint 8, this project continues the refactoring from the previous project, i
    9. CSS Minification and AMinification compresses file size while maintaining all functionality, while autoprefixing ensures cross-browser compatibility.utoprefixing with PostCSS
    10. Final Configuration Files
 
-In Sprint 9, this sprint focuses on asynchronous code and its application in working with APIs and making HTML requests.
-
-This is the final pure JavaScript iteration of your Around the US project. The major focus is on connecting the project to a server using fetch requests. This will make your cards and user data persistent. Other new features include a counter for likes, a confirmation modal that appears prior to deleting a card, and another modal for changing the profile picture.
+### In Sprint 9, this sprint focuses on asynchronous code and its application in working with APIs and making HTML requests:
+- This is the final pure JavaScript iteration of your Around the US project.
+- The major focus is on connecting the project to a server using fetch requests.
+- This will make your cards and user data persistent.
+- Other new features include a counter for likes, a confirmation modal that appears prior to deleting a card, and another modal for changing the profile picture.
 
 A. ASYNCHRONUS PROGRAMMING
 1. Intro
@@ -310,24 +411,7 @@ C. OBJECT PROTOTYPES
 2. The `Object.create` Method
    1. The `Object.create` method creates an empty object with the specified prototype.
 3. The **new** Operator
-   1. We can encapsulate the logic of the previous example into a function like this.
-      1. function createPopupWithForm(selector, submitHandler) {
-
-	      // 1. create a new empty object with a prototype linked to it.
-               const popupWithForm = Object.create(popup);
-
-         // 2. add all necessary properties to this object.
-               popupWithForm.selector = selector;
-               popupWithForm.submit = submitHandler;
-   
-         // 3. return the object
-               return popupWithForm;
-         }
-      2. Steps 1 and 3 can be automated by calling a function with the `new` operator. When called with `new`, additional steps are taken by the browser, before and after executing the functions body:
-         1. Before executing the function, the engine creates a new empty object and assigns it to the value of `this` inside the function being called.
-         2. The engine then executes the function code.
-         3. After executing the function, `this` is returned.
-      3. It is customary to name functions that are intended to be used with the `new` operator with an initial capital letter, to make this intention clear.
+   1. We can encapsulate the logic of the previous example into a function
 4. The **prototype** Property
    1. Calling a function with the `new` operator automatically creates an empty object, adds the `this` keyword to it, then returns it after the function's code is executed.  
    2. The returned object has a property called `prototype`. We can add methods and properties to the `prototype` property, which will be then be stored in the prototype — that is to say, in the `__proto__` property of the created object.
@@ -339,92 +423,3 @@ C. OBJECT PROTOTYPES
 7. Inheritance and the ProtoType Chain
    1. Inheritance works by adding linking a parent class to the __proto__ property of the child, forming a chain that ultimately connects the child to the prototype of its parent as well.
 
-Project Objectives:
-
-Sprint3:
-
-1. working with design specs
-2. design in a world of ever-changing devices
-3. grid layout
-4. developing interfaces for different devices
-5. intermediate Git
-
-Sprint4:
-
-1. Data Types and Variables
-2. Conditionals and Loops
-3. Data Structures, Arrays, and Objects
-4. Functions
-5. Basics of the DOM
-6. Debugging
-7. Export GIT
-
-Sprint5:
-
-1. More About Strings, Numbers, and ...
-2. Array Methods
-3. Functions. Part2
-4. Working c the DOM. Part2
-5. Managing the GIT Story
-
-Sprint6:
-
-1. Objects
-2. Event Handling
-3. Working with Forms
-4. Form Validation
-5. Debugging in Javascript
-
-Sprint7:
-
-1. Intro to Object Oriented Programming OOP
-2. Interfaces in OOP
-3. Intro to Modular Javascript
-
-Sprint8:
-
-1. Destructuring Syntax
-2. Interfaces in OOP Part2
-3. Project Building c WebPack
-
-Sprint9:
-
-1. Asynchronous Programming
-2. Intro to Working with APIs
-3. Object Prototypes
-
-
-**Intro**
-
-This project is made so all the elements are displayed correctly on popular screen sizes using media queries.
-
-**Figma**
-
--[Link to the project9 on Figma] (https://www.figma.com/design/E5x6ib3osaUUNwLRRAsTDX/Sprint-9-%E2%80%94-Applied-JavaScript?node-id=1530-2&t=PmjVPNRUjTbbT1SW-0)
-
--[Link to the project6 on Figma] (https://www.figma.com/file/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?fuid=1292520043125919162)
-
-- [Link to the project5 on Figma] (https://www.figma.com/file/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?type=design&node-id=0-1&mode=design&t=3Is6tCgbLMhdDBfO-0#40;Copy&#41;?t=3hvVWRz9LUFsxyNn-6)
-
-- [Link to the project4 stage3&4 on Figma] (https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?type=design&node-id=0-1&mode=design&t=z5FVK2njhR9SnGnr-0)
-
-- [Link to the project4 stage2 on Figma] (https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4%3A-Around-The-U.S.-%2F-desktop-%2B-mobile?node-id=6432%3A356&mode=dev)
-
-- [Link to the project4 stage1 on Figma] (https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=0%3A1&mode=dev)
-
-- [Link to the project3 on Figma] (https://www.figma.com/file/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432%3A187&mode=dev)
-
-**Images**
-
-- retrieved the images from the sprint3 platform
-- or the images could be directly exported from Figma is another method
-- optimized them so the projects load faster
-- [project3 image](./readme%20image/project3.png)
-
-Good Luck and Have Fun!
-
-- [Project Link](https://johnplamoottil.github.io/se_project_aroundtheus/)
-
-- [Project3 Video Submission Youtube unlisted Link](https://youtu.be/9h6GOltyLww)
-
-- [Project Demo - Around the US](https://youtu.be/LZCTDwtgJdI)
